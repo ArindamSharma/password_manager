@@ -1,0 +1,21 @@
+{
+    "view": {
+        "view_1": ".!frame"
+    },
+    "img": {
+        "logo1": {
+            "root": "pyimage1",
+            "small": "pyimage2"
+        }
+    },
+    "img_obj": {
+        "logo1": {
+            "root": "pyimage1",
+            "path": "../img/icon/logo1.png"
+        }
+    },
+    "frame": {},
+    "label": {},
+    "button": {},
+    "icon_button": {}
+}

@@ -1,0 +1,261 @@
+{
+    "config_theme": "theme3",
+    "structure": {
+        "home": {
+            "root": ".!frame",
+            "left_sec": {
+                "root": ".!frame.!frame",
+                "head": {
+                    "root": ".!frame.!frame.!frame",
+                    "icon": ".!frame.!frame.!frame.!label",
+                    "label": {
+                        "name": "AceVault",
+                        "root": ".!frame.!frame.!frame.!label2"
+                    }
+                },
+                "menu": {
+                    "root": ".!frame.!frame.!frame2",
+                    "button": {
+                        "search_vault_button": {
+                            "name": "Search",
+                            "root": ".!frame.!frame.!frame2.!button"
+                        },
+                        "new_vault_button": {
+                            "name": "New Vault",
+                            "root": ".!frame.!frame.!frame2.!button2"
+                        },
+                        "export_vault_button": {
+                            "name": "Export Vault",
+                            "root": ".!frame.!frame.!frame2.!button3"
+                        },
+                        "import_vault_button": {
+                            "name": "Import Vault",
+                            "root": ".!frame.!frame.!frame2.!button4"
+                        },
+                        "setting_button": {
+                            "name": "Setting",
+                            "root": ".!frame.!frame.!frame2.!button5"
+                        }
+                    }
+                }
+            },
+            "right_sec": {
+                "root": ".!frame.!frame2",
+                "head": {
+                    "root": ".!frame.!frame2.!frame",
+                    "search_box": {
+                        "root": ".!frame.!frame2.!frame.!frame",
+                        "input": {
+                            "root": ".!frame.!frame2.!frame.!frame.!frame",
+                            "entry": ".!frame.!frame2.!frame.!frame.!frame.!entry",
+                            "close_button": {
+                                "name": "close_button",
+                                "root": ".!frame.!frame2.!frame.!frame.!frame.!button"
+                            }
+                        },
+                        "search_button": {
+                            "name": "search_button",
+                            "root": ".!frame.!frame2.!frame.!frame.!button"
+                        }
+                    },
+                    "user_button": {
+                        "name": "  User 1",
+                        "root": ".!frame.!frame2.!frame.!button"
+                    }
+                },
+                "canavas": {
+                    "root": ".!frame.!frame2.!canvas",
+                    "frame0": {
+                        "root": ".!frame.!frame2.!canvas.!frame",
+                        "index": 0,
+                        "height": 150,
+                        "width": 0,
+                        "spacing": 10,
+                        "xy": [
+                            0,
+                            0
+                        ],
+                        "left_sec": {
+                            "root": ".!frame.!frame2.!canvas.!frame.!frame",
+                            "icon": {
+                                "location": null,
+                                "label": ".!frame.!frame2.!canvas.!frame.!frame.!label"
+                            }
+                        },
+                        "right_sec": {
+                            "root": ".!frame.!frame2.!canvas.!frame.!frame2",
+                            "head": {
+                                "root": ".!frame.!frame2.!canvas.!frame.!frame2.!frame",
+                                "saveas_button": {
+                                    "name": "saveas_button",
+                                    "root": ".!frame.!frame2.!canvas.!frame.!frame2.!frame.!button"
+                                },
+                                "export_button": {
+                                    "name": "export_button",
+                                    "root": ".!frame.!frame2.!canvas.!frame.!frame2.!frame.!button2"
+                                },
+                                "delete_button": {
+                                    "name": "delete_button",
+                                    "root": ".!frame.!frame2.!canvas.!frame.!frame2.!frame.!button3"
+                                },
+                                "edit_button": {
+                                    "name": "edit_button",
+                                    "root": ".!frame.!frame2.!canvas.!frame.!frame2.!frame.!button4"
+                                }
+                            },
+                            "body": {
+                                "root": ".!frame.!frame2.!canvas.!frame.!frame2.!frame2",
+                                "vault_button": {
+                                    "name": "Vault 0",
+                                    "root": ".!frame.!frame2.!canvas.!frame.!frame2.!frame2.!button"
+                                },
+                                "entry_number": {
+                                    "name": "Entry Number0",
+                                    "root": ".!frame.!frame2.!canvas.!frame.!frame2.!frame2.!label"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "view_2": {
+            "root": ".!frame2",
+            "head": {
+                "root": ".!frame2.!frame",
+                "title": {
+                    "name": "Message Box",
+                    "root": ".!frame2.!frame.!label"
+                },
+                "close_button": {
+                    "name": "close_button",
+                    "root": ".!frame2.!frame.!button"
+                }
+            },
+            "container": {
+                "root": ".!frame2.!frame2",
+                "message_body": ".!frame2.!frame2.!label"
+            }
+        },
+        "vault_view": {
+            "root": ".!frame3",
+            "head": {
+                "root": ".!frame3.!frame"
+            },
+            "body": {
+                "root": ".!frame3.!frame2"
+            }
+        }
+    },
+    "vault_count": 1,
+    "icon": {
+        "close": {
+            "location": "../img/icon/close.png",
+            "small": "pyimage2",
+            "medium": "pyimage4",
+            "large": "pyimage7"
+        },
+        "copy": {
+            "location": "../img/icon/copy.png",
+            "small": "pyimage9",
+            "medium": "pyimage11",
+            "large": "pyimage14"
+        },
+        "edit": {
+            "location": "../img/icon/edit.png",
+            "small": "pyimage16",
+            "medium": "pyimage18",
+            "large": "pyimage21"
+        },
+        "export": {
+            "location": "../img/icon/export.png",
+            "small": "pyimage23",
+            "medium": "pyimage25",
+            "large": "pyimage28"
+        },
+        "generator": {
+            "location": "../img/icon/generator.png",
+            "small": "pyimage30",
+            "medium": "pyimage32",
+            "large": "pyimage35"
+        },
+        "home": {
+            "location": "../img/icon/home.png",
+            "small": "pyimage37",
+            "medium": "pyimage39",
+            "large": "pyimage42"
+        },
+        "import": {
+            "location": "../img/icon/import.png",
+            "small": "pyimage44",
+            "medium": "pyimage46",
+            "large": "pyimage49"
+        },
+        "logo1": {
+            "location": "../img/icon/logo1.png",
+            "small": "pyimage51",
+            "medium": "pyimage53",
+            "large": "pyimage56"
+        },
+        "more": {
+            "location": "../img/icon/more.png",
+            "small": "pyimage58",
+            "medium": "pyimage60",
+            "large": "pyimage63"
+        },
+        "plus": {
+            "location": "../img/icon/plus.png",
+            "small": "pyimage65",
+            "medium": "pyimage67",
+            "large": "pyimage70"
+        },
+        "remove": {
+            "location": "../img/icon/remove.png",
+            "small": "pyimage72",
+            "medium": "pyimage74",
+            "large": "pyimage77"
+        },
+        "save": {
+            "location": "../img/icon/save.png",
+            "small": "pyimage79",
+            "medium": "pyimage81",
+            "large": "pyimage84"
+        },
+        "search1": {
+            "location": "../img/icon/search1.png",
+            "small": "pyimage86",
+            "medium": "pyimage88",
+            "large": "pyimage91"
+        },
+        "search2": {
+            "location": "../img/icon/search2.png",
+            "small": "pyimage93",
+            "medium": "pyimage95",
+            "large": "pyimage98"
+        },
+        "setting": {
+            "location": "../img/icon/setting.png",
+            "small": "pyimage100",
+            "medium": "pyimage102",
+            "large": "pyimage105"
+        },
+        "show-hide": {
+            "location": "../img/icon/show-hide.png",
+            "small": "pyimage107",
+            "medium": "pyimage109",
+            "large": "pyimage112"
+        },
+        "user": {
+            "location": "../img/icon/user.png",
+            "small": "pyimage114",
+            "medium": "pyimage116",
+            "large": "pyimage119"
+        },
+        "vault": {
+            "location": "../img/icon/vault.png",
+            "small": "pyimage121",
+            "medium": "pyimage123",
+            "large": "pyimage126"
+        }
+    }
+}

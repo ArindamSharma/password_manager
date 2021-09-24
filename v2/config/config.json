@@ -1,0 +1,20 @@
+{
+    "theme": 0,
+    "log_filename": "./log/main.log",
+    "config_filename": "./config/config.json",
+    "theme_filename": "./config/theme.json",
+    "structure_filename": "./config/structure.json",
+    "widgetList_filename": "./config/widget_list.json",
+    "passbook_filename": "./config/passbook.csv",
+    "db_col": [
+        "category",
+        "subcateogry",
+        "microcategory",
+        "title",
+        "email",
+        "username",
+        "password",
+        "link",
+        "data"
+    ]
+}
