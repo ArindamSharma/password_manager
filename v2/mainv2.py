@@ -15,7 +15,7 @@ def window_exit():
     log.info(0,"Have a Nice Day")
     config.save();log.onlylog(config.errorMessage)
     themeConfig.save();log.onlylog(themeConfig.errorMessage)
-    structure.save();log.onlylog(structure.errorMessage)
+    widgetList.data=widget.get_all()
     widgetList.save();log.onlylog(widgetList.errorMessage)
     log.close()
     widget.root.destroy()
@@ -57,14 +57,17 @@ passbook=Passbook(config.data["db_col"],config.data["passbook_filename"])
 widget.set_root("Password Manager",(800,560),(560,360),widget.set_img("../img/icon/logo1.png","small"))
 
 #Initalizing Structure (Optional) 
-structure=Configuration(default_config["structure_filename"],{})
-log.onlylog(structure.errorMessage)
-#Initalizing Structure (Optional) 
 widgetList=Configuration(default_config["widgetList_filename"],widget.get_all())
 log.onlylog(widgetList.errorMessage)
 
-structure.data["root"]=widget.root
-structure.data["view_1"]=widget.set_view("view_1",widget.root)
+
+widget.set_view("home",widget.root)
+widget.view["home"]["head"]=widget.set_frame(widget.view["home"]["root"])
+widget.view["home"]["body"]=widget.set_frame(widget.view["home"]["root"])
+widget.set_view("setting",widget.root)
+
+
+# Things to do at last
 # print_master("master",widget.get_all())
 widget.root.protocol("WM_DELETE_WINDOW", window_exit)
 widget.root.mainloop()

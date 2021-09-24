@@ -26,9 +26,11 @@ class WidgetHandler:
             return self.img[image_name][size]
         except (KeyError):
             self.img_obj[image_name]={}
+            self.img_obj[image_name]["widgetType"]="PhotoImage"
             self.img_obj[image_name]["root"]=tk.PhotoImage(file=file_path)
             self.img_obj[image_name]["path"]=file_path
             self.img[image_name]={}
+            self.img[image_name]["widgetType"]="PhotoImage"
             self.img[image_name]["root"]=self.img_obj[image_name]["root"]
             return self.set_img(self.img_obj[image_name]["path"],size)
 
@@ -40,25 +42,28 @@ class WidgetHandler:
         return tmp
 
     def set_frame(self,parent,bg="white"):
-        tmp=tk.Frame(parent,bg=bg)
         frame_number=str(len(self.frame))
-        self.frame["frame"+frame_number]=tmp
+        self.frame["frame"+frame_number]={}
+        self.frame["frame"+frame_number]["widgetType"]="Frame"
+        self.frame["frame"+frame_number]["root"]=tk.Frame(parent,bg=bg)
         return self.frame["frame"+frame_number]
     
     def set_view(self,view_name,parent,bg="white"):
-        self.view[view_name]=tk.Frame(parent,bg=bg)
-        self.view[view_name].grid(row=0,column=0,sticky=tk.N+tk.E+tk.W+tk.S,)
+        self.view[view_name]={}
+        self.view[view_name]["widgetType"]="View"
+        self.view[view_name]["root"]=tk.Frame(parent,bg=bg)
+        self.view[view_name]["root"].grid(row=0,column=0,sticky=tk.N+tk.E+tk.W+tk.S,)
         return self.view[view_name]
 
     def set_root(self,title,size=(800,590),min_size=(560,360),favicon=None):
         self.root.title(title)
         self.root.geometry("x".join([str(i) for i in size]))
-            # self.root.iconbitmap( dir_path+"logo1.png")
         self.root.grid_columnconfigure(0, weight=1)
         self.root.grid_rowconfigure(0, weight=1)
         self.root.minsize(*min_size)
         if (favicon!=None):
             self.root.iconphoto(False, favicon)
+            # self.root.iconbitmap( dir_path+"logo1.png")
     
     def set_button(self,parent,text,button_name=None):
         if(button_name==None):

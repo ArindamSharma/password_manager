@@ -1,20 +1,46 @@
 {
     "view": {
-        "view_1": ".!frame"
+        "home": {
+            "widgetType": "View",
+            "root": ".!frame",
+            "head": {
+                "widgetType": "Frame",
+                "root": ".!frame.!frame"
+            },
+            "body": {
+                "widgetType": "Frame",
+                "root": ".!frame.!frame2"
+            }
+        },
+        "setting": {
+            "widgetType": "View",
+            "root": ".!frame2"
+        }
     },
     "img": {
         "logo1": {
+            "widgetType": "PhotoImage",
             "root": "pyimage1",
             "small": "pyimage2"
         }
     },
     "img_obj": {
         "logo1": {
+            "widgetType": "PhotoImage",
             "root": "pyimage1",
             "path": "../img/icon/logo1.png"
         }
     },
-    "frame": {},
+    "frame": {
+        "frame0": {
+            "widgetType": "Frame",
+            "root": ".!frame.!frame"
+        },
+        "frame1": {
+            "widgetType": "Frame",
+            "root": ".!frame.!frame2"
+        }
+    },
     "label": {},
     "button": {},
     "icon_button": {}
