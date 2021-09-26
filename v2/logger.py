@@ -14,13 +14,16 @@ class Logger:
         self.__log(0,"Logger  :: Start :: ",dt.now())
 
     def debug(self,envNumber=0,*arg):
-        self.__print(envNumber,"[DEBUG] :",Color.fg.BEIGE,arg)
+        self.__print(envNumber,"[DEBUG] :: ",Color.fg.BEIGE,arg)
         
     def info(self,envNumber=0,*arg):
-        self.__print(envNumber,"[INFO]  :",Color.fg.GREEN,arg)
+        self.__print(envNumber,"[INFO]  :: ",Color.fg.GREEN,arg)
 
     def error(self,envNumber=0,*arg):
-        self.__print(envNumber,"[ERROR] :",Color.fg.RED,arg)
+        self.__print(envNumber,"[ERROR] :: ",Color.fg.RED,arg)
+
+    def file(self,*arg):
+        self.__print(-1,"[FILE]  :: ",Color.fg.GREEN,arg)
     
     def __log(self,envNumber=0,*arg):
         self.__print(envNumber,"","",arg)
@@ -29,18 +32,21 @@ class Logger:
         self.__print(-1,"","",arg)
 
     def __print(self,envNumber,label,labelColor,message):
-        colorLabel=Color.style.BOLD+labelColor+"\r\r"+label+Color.fg.WHITE+Color.style.RESET_ALL
+        colorLabel=Color.style.BOLD+labelColor+label+Color.fg.WHITE+Color.style.RESET_ALL
         strArg="".join([str(i) for i in message])
         if (envNumber in self.envNumber):
-            print(colorLabel,strArg)
+            print(colorLabel+strArg)
         self.buffer+=label+strArg+"\n"
         self.bufferLen+=1
         if(self.bufferLen >=self.bufferMax):
-            self.filePointer=open(self.fileName,"a")
-            self.filePointer.write(self.buffer)
-            self.filePointer.close()
-            self.buffer=""
-            self.bufferLen=0
+            self.__flushBuffer()
+
+    def __flushBuffer(self):
+        self.filePointer=open(self.fileName,"a")
+        self.filePointer.write(self.buffer)
+        self.filePointer.close()
+        self.buffer=""
+        self.bufferLen=0
 
     def close(self):
         self.__log(0,"Logger  :: Close :: ",dt.now())

@@ -1,47 +1,63 @@
 {
-    "view": {
-        "home": {
-            "widgetType": "View",
-            "root": ".!frame",
-            "head": {
+    "widgetType": "Root",
+    "root": ".",
+    "home": {
+        "widgetType": "View",
+        "root": ".!frame",
+        "left": {
+            "widgetType": "Frame",
+            "root": ".!frame.!frame",
+            "brandHead": {
                 "widgetType": "Frame",
-                "root": ".!frame.!frame"
+                "root": ".!frame.!frame.!frame",
+                "brandLogo": {
+                    "widgetType": "Icon",
+                    "root": ".!frame.!frame.!frame.!label",
+                    "imgKey": "logo1"
+                },
+                "brandLabel": {
+                    "widgetType": "Label",
+                    "labelText": "AceVault",
+                    "root": ".!frame.!frame.!frame.!label2"
+                }
             },
-            "body": {
+            "menuList": {
                 "widgetType": "Frame",
-                "root": ".!frame.!frame2"
+                "root": ".!frame.!frame.!frame2",
+                "searchButton": {
+                    "widgetType": "IconButton",
+                    "buttonText": "  Search",
+                    "root": ".!frame.!frame.!frame2.!button"
+                },
+                "newVaultButton": {
+                    "widgetType": "IconButton",
+                    "buttonText": "  New Vault",
+                    "root": ".!frame.!frame.!frame2.!button2"
+                },
+                "importButton": {
+                    "widgetType": "IconButton",
+                    "buttonText": "  Import Vault",
+                    "root": ".!frame.!frame.!frame2.!button3"
+                },
+                "exportButton": {
+                    "widgetType": "IconButton",
+                    "buttonText": "  Export Vault",
+                    "root": ".!frame.!frame.!frame2.!button4"
+                },
+                "settingButton": {
+                    "widgetType": "IconButton",
+                    "buttonText": "  Setting",
+                    "root": ".!frame.!frame.!frame2.!button5"
+                }
             }
         },
-        "setting": {
-            "widgetType": "View",
-            "root": ".!frame2"
-        }
-    },
-    "img": {
-        "logo1": {
-            "widgetType": "PhotoImage",
-            "root": "pyimage1",
-            "small": "pyimage2"
-        }
-    },
-    "img_obj": {
-        "logo1": {
-            "widgetType": "PhotoImage",
-            "root": "pyimage1",
-            "path": "../img/icon/logo1.png"
-        }
-    },
-    "frame": {
-        "frame0": {
-            "widgetType": "Frame",
-            "root": ".!frame.!frame"
-        },
-        "frame1": {
+        "right": {
             "widgetType": "Frame",
             "root": ".!frame.!frame2"
         }
     },
-    "label": {},
-    "button": {},
-    "icon_button": {}
+    "setting": {
+        "widgetType": "View",
+        "root": ".!frame2"
+    }
 }
