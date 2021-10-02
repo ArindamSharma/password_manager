@@ -7,6 +7,7 @@ class WidgetHandler:
         self.img={"count":0}
         self.icon={"count":0}
 
+        self.canavas={"count":0}
         self.frame={"count":0}
         self.label={"count":0}
         self.button={"count":0}
@@ -25,7 +26,16 @@ class WidgetHandler:
         if (favicon_path!=None):
             self.root["root"].iconphoto(False, self.set_img(favicon_path,"small"))
             # self.root["root"].iconbitmap( dir_path+"logo1.png")
-   
+    
+    def set_canavas(self,parent,canavas_id=None,**arg)->dict:
+        self.__id_exist_check(self.canavas,canavas_id)
+        if (canavas_id==None):canavas_id="frame"+str(self.canavas["count"])
+        self.canavas[canavas_id]={}
+        self.canavas[canavas_id]["widgetType"]="Canavas"
+        self.canavas[canavas_id]["root"]=tk.Canvas(parent["root"],**arg)
+        self.canavas["count"]+=1
+        return self.canavas[canavas_id]
+
     def set_view(self,view_id,parent,**arg)->dict:
         self.__id_exist_check(self.view,view_id)
         self.view[view_id]={}

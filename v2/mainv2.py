@@ -5,7 +5,7 @@ from tk_widget_handler import tk
 from tk_widget_handler import WidgetHandler
 from tk_widget_handler import print_master
 from password_handler import pd
-from password_handler import Passbook
+from password_handler import TagedPassbook
 from logger import Color
 from logger import dt #datatime as dt
 from logger import Logger
@@ -71,7 +71,7 @@ log.file(config.errorMessage)
 themeConfig=Configuration(default_config["theme_filename"],theme)
 log.file(themeConfig.errorMessage)
 # initializing password storage
-passbook=Passbook(config.data["db_col"],config.data["passbook_filename"])
+passbook=TagedPassbook(column=config.data["db_col"],filename=config.data["passbook_filename"])
 
 # initializing Root
 widget.set_root("Password Manager",(800,560),(560,360),"../img/icon/logo1.png")
@@ -109,7 +109,7 @@ for widgetName,buttonText,iconPath in [
     widget.frame["homeMenuList"][widgetName]["root"].pack(side=tk.TOP,fill=tk.X,pady=10,padx=10)
 widget.frame["homeMenuList"]["settingButton"]["root"].pack(side=tk.BOTTOM)
 
-widget.view["home"]["right"]=widget.set_frame(widget.view["home"])
+widget.view["home"]["right"]=widget.set_canavas(widget.view["home"],bg="green")
 widget.view["home"]["right"]["root"].pack(side=tk.RIGHT,fill=tk.BOTH,expand=True)
 
 # View Settings
