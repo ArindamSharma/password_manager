@@ -1,10 +1,112 @@
 {
-    "widgetType": "Root",
-    "root": ".",
-    "home": {
-        "widgetType": "View",
-        "root": ".!frame",
-        "left": {
+    "root": {
+        "widgetType": "Root",
+        "root": ".",
+        "home": {
+            "widgetType": "View",
+            "root": ".!frame",
+            "left": {
+                "widgetType": "Frame",
+                "root": ".!frame.!frame",
+                "brandHead": {
+                    "widgetType": "Frame",
+                    "root": ".!frame.!frame.!frame",
+                    "brandLogo": {
+                        "widgetType": "Icon",
+                        "root": ".!frame.!frame.!frame.!label",
+                        "imgKey": "logo1"
+                    },
+                    "brandLabel": {
+                        "widgetType": "Label",
+                        "labelText": "AceVault",
+                        "root": ".!frame.!frame.!frame.!label2"
+                    }
+                },
+                "menuList": {
+                    "widgetType": "Frame",
+                    "root": ".!frame.!frame.!frame2",
+                    "searchButton": {
+                        "widgetType": "IconButton",
+                        "buttonText": "  Search",
+                        "root": ".!frame.!frame.!frame2.!button"
+                    },
+                    "newVaultButton": {
+                        "widgetType": "IconButton",
+                        "buttonText": "  New Vault",
+                        "root": ".!frame.!frame.!frame2.!button2"
+                    },
+                    "settingButton": {
+                        "widgetType": "IconButton",
+                        "buttonText": "  Setting",
+                        "root": ".!frame.!frame.!frame2.!button3"
+                    }
+                }
+            },
+            "right": {
+                "widgetType": "Canavas",
+                "root": ".!frame.!canvas"
+            }
+        },
+        "setting": {
+            "widgetType": "View",
+            "root": ".!frame2"
+        }
+    },
+    "view": {
+        "count": 2,
+        "home": {
+            "widgetType": "View",
+            "root": ".!frame",
+            "left": {
+                "widgetType": "Frame",
+                "root": ".!frame.!frame",
+                "brandHead": {
+                    "widgetType": "Frame",
+                    "root": ".!frame.!frame.!frame",
+                    "brandLogo": {
+                        "widgetType": "Icon",
+                        "root": ".!frame.!frame.!frame.!label",
+                        "imgKey": "logo1"
+                    },
+                    "brandLabel": {
+                        "widgetType": "Label",
+                        "labelText": "AceVault",
+                        "root": ".!frame.!frame.!frame.!label2"
+                    }
+                },
+                "menuList": {
+                    "widgetType": "Frame",
+                    "root": ".!frame.!frame.!frame2",
+                    "searchButton": {
+                        "widgetType": "IconButton",
+                        "buttonText": "  Search",
+                        "root": ".!frame.!frame.!frame2.!button"
+                    },
+                    "newVaultButton": {
+                        "widgetType": "IconButton",
+                        "buttonText": "  New Vault",
+                        "root": ".!frame.!frame.!frame2.!button2"
+                    },
+                    "settingButton": {
+                        "widgetType": "IconButton",
+                        "buttonText": "  Setting",
+                        "root": ".!frame.!frame.!frame2.!button3"
+                    }
+                }
+            },
+            "right": {
+                "widgetType": "Canavas",
+                "root": ".!frame.!canvas"
+            }
+        },
+        "setting": {
+            "widgetType": "View",
+            "root": ".!frame2"
+        }
+    },
+    "frame": {
+        "count": 3,
+        "frame0": {
             "widgetType": "Frame",
             "root": ".!frame.!frame",
             "brandHead": {
@@ -34,30 +136,116 @@
                     "buttonText": "  New Vault",
                     "root": ".!frame.!frame.!frame2.!button2"
                 },
-                "importButton": {
-                    "widgetType": "IconButton",
-                    "buttonText": "  Import Vault",
-                    "root": ".!frame.!frame.!frame2.!button3"
-                },
-                "exportButton": {
-                    "widgetType": "IconButton",
-                    "buttonText": "  Export Vault",
-                    "root": ".!frame.!frame.!frame2.!button4"
-                },
                 "settingButton": {
                     "widgetType": "IconButton",
                     "buttonText": "  Setting",
-                    "root": ".!frame.!frame.!frame2.!button5"
+                    "root": ".!frame.!frame.!frame2.!button3"
                 }
             }
         },
-        "right": {
+        "brandHead": {
+            "widgetType": "Frame",
+            "root": ".!frame.!frame.!frame",
+            "brandLogo": {
+                "widgetType": "Icon",
+                "root": ".!frame.!frame.!frame.!label",
+                "imgKey": "logo1"
+            },
+            "brandLabel": {
+                "widgetType": "Label",
+                "labelText": "AceVault",
+                "root": ".!frame.!frame.!frame.!label2"
+            }
+        },
+        "homeMenuList": {
+            "widgetType": "Frame",
+            "root": ".!frame.!frame.!frame2",
+            "searchButton": {
+                "widgetType": "IconButton",
+                "buttonText": "  Search",
+                "root": ".!frame.!frame.!frame2.!button"
+            },
+            "newVaultButton": {
+                "widgetType": "IconButton",
+                "buttonText": "  New Vault",
+                "root": ".!frame.!frame.!frame2.!button2"
+            },
+            "settingButton": {
+                "widgetType": "IconButton",
+                "buttonText": "  Setting",
+                "root": ".!frame.!frame.!frame2.!button3"
+            }
+        }
+    },
+    "canavas": {
+        "count": 1,
+        "homeCanavas": {
             "widgetType": "Canavas",
             "root": ".!frame.!canvas"
         }
     },
-    "setting": {
-        "widgetType": "View",
-        "root": ".!frame2"
+    "icon": {
+        "count": 1,
+        "icon0": {
+            "widgetType": "Icon",
+            "root": ".!frame.!frame.!frame.!label",
+            "imgKey": "logo1"
+        }
+    },
+    "img": {
+        "count": 4,
+        "logo1": {
+            "widgetType": "PhotoImage",
+            "root": "pyimage1",
+            "path": "../img/icon/logo1.png",
+            "small": "pyimage2"
+        },
+        "home": {
+            "widgetType": "PhotoImage",
+            "root": "pyimage3",
+            "path": "../img/icon/home.png",
+            "small": "pyimage4"
+        },
+        "plus": {
+            "widgetType": "PhotoImage",
+            "root": "pyimage5",
+            "path": "../img/icon/plus.png",
+            "small": "pyimage6"
+        },
+        "setting": {
+            "widgetType": "PhotoImage",
+            "root": "pyimage7",
+            "path": "../img/icon/setting.png",
+            "small": "pyimage8"
+        }
+    },
+    "label": {
+        "count": 1,
+        "label0": {
+            "widgetType": "Label",
+            "labelText": "AceVault",
+            "root": ".!frame.!frame.!frame.!label2"
+        }
+    },
+    "button": {
+        "count": 0
+    },
+    "icon_button": {
+        "count": 3,
+        "icon_button0": {
+            "widgetType": "IconButton",
+            "buttonText": "  Search",
+            "root": ".!frame.!frame.!frame2.!button"
+        },
+        "icon_button1": {
+            "widgetType": "IconButton",
+            "buttonText": "  New Vault",
+            "root": ".!frame.!frame.!frame2.!button2"
+        },
+        "icon_button2": {
+            "widgetType": "IconButton",
+            "buttonText": "  Setting",
+            "root": ".!frame.!frame.!frame2.!button3"
+        }
     }
 }

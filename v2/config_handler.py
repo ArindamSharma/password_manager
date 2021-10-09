@@ -6,28 +6,27 @@ class Configuration:
             raise ValueError (filename.split(".")[-1]," is not acceptable extension ,it have to be .json")
         self.data=default_configuration
         self.fileName=filename
-        self.filePointer=None
         self.errorMessage=self.fileName
         self.__load()
 
     def __load(self) ->bool:
         if(os.path.isfile(self.fileName)):
-            self.filePointer=open(self.fileName,"r")
-            readData=None
+            filePointer=open(self.fileName,"r")
             try:
-                readData=json.load(self.filePointer)
+                readData=json.load(filePointer)
             except(json.JSONDecodeError):
                 self.errorMessage="Error :: Json File Wrong Formating"
                 return False
-            self.filePointer.close()
-            return self.validation_check(readData)
+            filePointer.close()
+            if(self.validation_check(readData)):
+                self.copy(readData)
         self.errorMessage=self.fileName+" :: Not Found"
         return False
 
     def save(self) -> bool:
-        self.filePointer=open(self.fileName,"w")
-        json.dump(self.data,self.filePointer,indent=4,default=lambda e : e.__str__())
-        self.filePointer.close()
+        filePointer=open(self.fileName,"w")
+        json.dump(self.data,filePointer,indent=4,default=lambda e : e.__str__())
+        filePointer.close()
         self.errorMessage=self.fileName+" :: Saved Sucessfully"
         return False
     
@@ -36,9 +35,17 @@ class Configuration:
             if key not in data:
                 self.errorMessage=self.fileName+" :: PreDefined Parameter Changed"
                 return False
-        self.data=data
         self.errorMessage=self.fileName+" :: PreDefined Parameter Found"
         return True
+    
+    def copy(self,data:dict)->None:
+        # if(type(data)==dict):
+        #     pass
+        for key in self.data:
+            self.data[key]=data[key]
+            
+    # def __del__(self):
+    #     self.save()
 
 if __name__=="__main__":
     print("Testing :: Configuration Class")

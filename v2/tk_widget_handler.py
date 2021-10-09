@@ -29,7 +29,7 @@ class WidgetHandler:
     
     def set_canavas(self,parent,canavas_id=None,**arg)->dict:
         self.__id_exist_check(self.canavas,canavas_id)
-        if (canavas_id==None):canavas_id="frame"+str(self.canavas["count"])
+        if (canavas_id==None):canavas_id="canavas"+str(self.canavas["count"])
         self.canavas[canavas_id]={}
         self.canavas[canavas_id]["widgetType"]="Canavas"
         self.canavas[canavas_id]["root"]=tk.Canvas(parent["root"],**arg)
@@ -150,6 +150,9 @@ class WidgetHandler:
     
     def get_frame(self)->dict:
         return self.frame
+
+    def get_canavas(self)->dict:
+        return self.canavas
     
     def get_label(self)->dict:
         return self.label
@@ -171,6 +174,7 @@ class WidgetHandler:
             "root":self.get_root(),
             "view":self.get_view(),
             "frame":self.get_frame(),
+            "canavas":self.get_canavas(),
             "icon":self.get_icon(),
             "img":self.get_img(),
             "label":self.get_label(),

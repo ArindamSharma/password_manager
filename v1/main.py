@@ -315,7 +315,13 @@ def main():
         master["view"]["home"]["right_sec"]["canavas"][frame_name]["width"]=0
         master["view"]["home"]["right_sec"]["canavas"][frame_name]["spacing"]=10
         master["view"]["home"]["right_sec"]["canavas"][frame_name]["xy"]=(0,entry*(master["view"]["home"]["right_sec"]["canavas"][frame_name]["height"]+master["view"]["home"]["right_sec"]["canavas"][frame_name]["spacing"]))
-        master["view"]["home"]["right_sec"]["canavas"]["root"].create_window(master["view"]["home"]["right_sec"]["canavas"][frame_name]["xy"],window=master["view"]["home"]["right_sec"]["canavas"][frame_name]["root"],anchor=tk.NW,width=master["view"]["home"]["right_sec"]["canavas"][frame_name]["width"],height=master["view"]["home"]["right_sec"]["canavas"][frame_name]["height"])
+        master["view"]["home"]["right_sec"]["canavas"]["root"].create_window(
+            master["view"]["home"]["right_sec"]["canavas"][frame_name]["xy"],
+            window=master["view"]["home"]["right_sec"]["canavas"][frame_name]["root"],
+            anchor=tk.NW,
+            width=master["view"]["home"]["right_sec"]["canavas"][frame_name]["width"],
+            height=master["view"]["home"]["right_sec"]["canavas"][frame_name]["height"]
+        )
         
         # Inner Structure
         master["view"]["home"]["right_sec"]["canavas"][frame_name]["left_sec"]={}

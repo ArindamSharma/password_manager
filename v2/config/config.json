@@ -1,20 +1,37 @@
 {
-    "theme": 0,
-    "log_filename": "./log/main.log",
-    "config_filename": "./config/config.json",
-    "theme_filename": "./config/theme.json",
-    "structure_filename": "./config/structure.json",
-    "widgetList_filename": "./config/widget_list.json",
-    "passbook_filename": "./config/passbook.csv",
-    "db_col": [
-        "category",
-        "subcateogry",
-        "microcategory",
-        "title",
-        "email",
-        "username",
-        "password",
-        "link",
-        "data"
-    ]
+    "filePath": {
+        "Log": "./log/main.log",
+        "Config": "./config/config.json",
+        "Theme": "./config/theme.json",
+        "Structure": "./config/structure.json",
+        "WidgetList": "./config/widget_list.json",
+        "PassBook": "./config/passbook.csv"
+    },
+    "Theme": {
+        "0": [],
+        "1": [],
+        "2": [],
+        "3": [],
+        "filePath": "./config/theme.json",
+        "current": []
+    },
+    "PassBook": {
+        "Columns": [
+            "title",
+            "email",
+            "username",
+            "password",
+            "link",
+            "data"
+        ],
+        "Tags": [
+            "College",
+            "Comapny",
+            "Personal",
+            "Intern",
+            "Games",
+            "Pool"
+        ],
+        "filePath": "./config/passbook.csv"
+    }
 }
