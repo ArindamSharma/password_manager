@@ -1,5 +1,5 @@
 import json
-import os
+from os.path import isfile
 class Configuration:
     def __init__(self,filename,default_configuration={}):
         if(filename.split(".")[-1]!="json"):
@@ -10,7 +10,7 @@ class Configuration:
         self.__load()
 
     def __load(self) ->bool:
-        if(os.path.isfile(self.fileName)):
+        if(isfile(self.fileName)):
             filePointer=open(self.fileName,"r")
             try:
                 readData=json.load(filePointer)
@@ -54,10 +54,7 @@ if __name__=="__main__":
         "val":{},
         "env":True,
     }
-    config=Configuration("test_config_handler",default)
-    # print(config.errorMessage)
-    config.load()
-    # print(config.errorMessage)
+    config=Configuration("./__pycache__/test_config_handler.json",default)
     print(config.data)
     config.save()
     # print(config.errorMessage)
