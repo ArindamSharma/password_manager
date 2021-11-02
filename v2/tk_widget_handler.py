@@ -33,8 +33,21 @@ class WidgetHandler:
         self.canavas[canavas_id]={}
         self.canavas[canavas_id]["widgetType"]="Canavas"
         self.canavas[canavas_id]["root"]=tk.Canvas(parent["root"],**arg)
+        self.canavas[canavas_id]["frame_count"]=0
         self.canavas["count"]+=1
         return self.canavas[canavas_id]
+    
+    def set_canavas_custom_frame1(self,parent_canavas,frame_id=None,height=10,width=10,spacing=10,**arg):
+        tmp=self.set_frame(parent_canavas,frame_id,**arg)
+        tmp["widgetType"]="Canavas Frame"
+        tmp["index"]=parent_canavas["frame_count"]
+        tmp["height"]=height
+        tmp["width"]=width
+        tmp["spacing"]=spacing
+        tmp["xy"]=(0,tmp["index"]*(height+spacing))
+        parent_canavas["root"].create_window(tmp["xy"],window=tmp["root"],anchor=tk.NW,width=width,height=height)
+        parent_canavas["frame_count"]+=1
+        return tmp
 
     def set_view(self,view_id,parent,**arg)->dict:
         self.__id_exist_check(self.view,view_id)

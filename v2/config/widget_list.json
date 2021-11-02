@@ -44,7 +44,128 @@
             },
             "right": {
                 "widgetType": "Canavas",
-                "root": ".!frame.!canvas"
+                "root": ".!frame.!canvas",
+                "frame_count": 3,
+                "frame_vault_1": {
+                    "widgetType": "Canavas Frame",
+                    "root": ".!frame.!canvas.!frame",
+                    "index": 0,
+                    "height": 150,
+                    "width": 10,
+                    "spacing": 10,
+                    "xy": [
+                        0,
+                        0
+                    ],
+                    "head": {
+                        "widgetType": "Frame",
+                        "root": ".!frame.!canvas.!frame.!frame",
+                        "exportVaultButton": {
+                            "widgetType": "Button",
+                            "buttonText": "button0",
+                            "root": ".!frame.!canvas.!frame.!frame.!button"
+                        },
+                        "deleteVaultButton": {
+                            "widgetType": "Button",
+                            "buttonText": "button1",
+                            "root": ".!frame.!canvas.!frame.!frame.!button2"
+                        },
+                        "editButton": {
+                            "widgetType": "Button",
+                            "buttonText": "button2",
+                            "root": ".!frame.!canvas.!frame.!frame.!button3"
+                        }
+                    },
+                    "body": {
+                        "widgetType": "Frame",
+                        "root": ".!frame.!canvas.!frame.!frame2",
+                        "vaultName": {
+                            "widgetType": "Label",
+                            "labelText": "vault_1",
+                            "root": ".!frame.!canvas.!frame.!frame2.!label"
+                        }
+                    }
+                },
+                "frame_vault_2": {
+                    "widgetType": "Canavas Frame",
+                    "root": ".!frame.!canvas.!frame2",
+                    "index": 1,
+                    "height": 150,
+                    "width": 10,
+                    "spacing": 10,
+                    "xy": [
+                        0,
+                        160
+                    ],
+                    "head": {
+                        "widgetType": "Frame",
+                        "root": ".!frame.!canvas.!frame2.!frame",
+                        "exportVaultButton": {
+                            "widgetType": "Button",
+                            "buttonText": "button3",
+                            "root": ".!frame.!canvas.!frame2.!frame.!button"
+                        },
+                        "deleteVaultButton": {
+                            "widgetType": "Button",
+                            "buttonText": "button4",
+                            "root": ".!frame.!canvas.!frame2.!frame.!button2"
+                        },
+                        "editButton": {
+                            "widgetType": "Button",
+                            "buttonText": "button5",
+                            "root": ".!frame.!canvas.!frame2.!frame.!button3"
+                        }
+                    },
+                    "body": {
+                        "widgetType": "Frame",
+                        "root": ".!frame.!canvas.!frame2.!frame2",
+                        "vaultName": {
+                            "widgetType": "Label",
+                            "labelText": "vault_2",
+                            "root": ".!frame.!canvas.!frame2.!frame2.!label"
+                        }
+                    }
+                },
+                "frame_vault_3": {
+                    "widgetType": "Canavas Frame",
+                    "root": ".!frame.!canvas.!frame3",
+                    "index": 2,
+                    "height": 150,
+                    "width": 10,
+                    "spacing": 10,
+                    "xy": [
+                        0,
+                        320
+                    ],
+                    "head": {
+                        "widgetType": "Frame",
+                        "root": ".!frame.!canvas.!frame3.!frame",
+                        "exportVaultButton": {
+                            "widgetType": "Button",
+                            "buttonText": "button6",
+                            "root": ".!frame.!canvas.!frame3.!frame.!button"
+                        },
+                        "deleteVaultButton": {
+                            "widgetType": "Button",
+                            "buttonText": "button7",
+                            "root": ".!frame.!canvas.!frame3.!frame.!button2"
+                        },
+                        "editButton": {
+                            "widgetType": "Button",
+                            "buttonText": "button8",
+                            "root": ".!frame.!canvas.!frame3.!frame.!button3"
+                        }
+                    },
+                    "body": {
+                        "widgetType": "Frame",
+                        "root": ".!frame.!canvas.!frame3.!frame2",
+                        "vaultName": {
+                            "widgetType": "Label",
+                            "labelText": "vault_3",
+                            "root": ".!frame.!canvas.!frame3.!frame2.!label"
+                        }
+                    }
+                }
             }
         },
         "setting": {
@@ -96,7 +217,128 @@
             },
             "right": {
                 "widgetType": "Canavas",
-                "root": ".!frame.!canvas"
+                "root": ".!frame.!canvas",
+                "frame_count": 3,
+                "frame_vault_1": {
+                    "widgetType": "Canavas Frame",
+                    "root": ".!frame.!canvas.!frame",
+                    "index": 0,
+                    "height": 150,
+                    "width": 10,
+                    "spacing": 10,
+                    "xy": [
+                        0,
+                        0
+                    ],
+                    "head": {
+                        "widgetType": "Frame",
+                        "root": ".!frame.!canvas.!frame.!frame",
+                        "exportVaultButton": {
+                            "widgetType": "Button",
+                            "buttonText": "button0",
+                            "root": ".!frame.!canvas.!frame.!frame.!button"
+                        },
+                        "deleteVaultButton": {
+                            "widgetType": "Button",
+                            "buttonText": "button1",
+                            "root": ".!frame.!canvas.!frame.!frame.!button2"
+                        },
+                        "editButton": {
+                            "widgetType": "Button",
+                            "buttonText": "button2",
+                            "root": ".!frame.!canvas.!frame.!frame.!button3"
+                        }
+                    },
+                    "body": {
+                        "widgetType": "Frame",
+                        "root": ".!frame.!canvas.!frame.!frame2",
+                        "vaultName": {
+                            "widgetType": "Label",
+                            "labelText": "vault_1",
+                            "root": ".!frame.!canvas.!frame.!frame2.!label"
+                        }
+                    }
+                },
+                "frame_vault_2": {
+                    "widgetType": "Canavas Frame",
+                    "root": ".!frame.!canvas.!frame2",
+                    "index": 1,
+                    "height": 150,
+                    "width": 10,
+                    "spacing": 10,
+                    "xy": [
+                        0,
+                        160
+                    ],
+                    "head": {
+                        "widgetType": "Frame",
+                        "root": ".!frame.!canvas.!frame2.!frame",
+                        "exportVaultButton": {
+                            "widgetType": "Button",
+                            "buttonText": "button3",
+                            "root": ".!frame.!canvas.!frame2.!frame.!button"
+                        },
+                        "deleteVaultButton": {
+                            "widgetType": "Button",
+                            "buttonText": "button4",
+                            "root": ".!frame.!canvas.!frame2.!frame.!button2"
+                        },
+                        "editButton": {
+                            "widgetType": "Button",
+                            "buttonText": "button5",
+                            "root": ".!frame.!canvas.!frame2.!frame.!button3"
+                        }
+                    },
+                    "body": {
+                        "widgetType": "Frame",
+                        "root": ".!frame.!canvas.!frame2.!frame2",
+                        "vaultName": {
+                            "widgetType": "Label",
+                            "labelText": "vault_2",
+                            "root": ".!frame.!canvas.!frame2.!frame2.!label"
+                        }
+                    }
+                },
+                "frame_vault_3": {
+                    "widgetType": "Canavas Frame",
+                    "root": ".!frame.!canvas.!frame3",
+                    "index": 2,
+                    "height": 150,
+                    "width": 10,
+                    "spacing": 10,
+                    "xy": [
+                        0,
+                        320
+                    ],
+                    "head": {
+                        "widgetType": "Frame",
+                        "root": ".!frame.!canvas.!frame3.!frame",
+                        "exportVaultButton": {
+                            "widgetType": "Button",
+                            "buttonText": "button6",
+                            "root": ".!frame.!canvas.!frame3.!frame.!button"
+                        },
+                        "deleteVaultButton": {
+                            "widgetType": "Button",
+                            "buttonText": "button7",
+                            "root": ".!frame.!canvas.!frame3.!frame.!button2"
+                        },
+                        "editButton": {
+                            "widgetType": "Button",
+                            "buttonText": "button8",
+                            "root": ".!frame.!canvas.!frame3.!frame.!button3"
+                        }
+                    },
+                    "body": {
+                        "widgetType": "Frame",
+                        "root": ".!frame.!canvas.!frame3.!frame2",
+                        "vaultName": {
+                            "widgetType": "Label",
+                            "labelText": "vault_3",
+                            "root": ".!frame.!canvas.!frame3.!frame2.!label"
+                        }
+                    }
+                }
             }
         },
         "setting": {
@@ -105,7 +347,7 @@
         }
     },
     "frame": {
-        "count": 3,
+        "count": 12,
         "frame0": {
             "widgetType": "Frame",
             "root": ".!frame.!frame",
@@ -175,13 +417,338 @@
                 "buttonText": "  Setting",
                 "root": ".!frame.!frame.!frame2.!button3"
             }
+        },
+        "frame_vault_1": {
+            "widgetType": "Canavas Frame",
+            "root": ".!frame.!canvas.!frame",
+            "index": 0,
+            "height": 150,
+            "width": 10,
+            "spacing": 10,
+            "xy": [
+                0,
+                0
+            ],
+            "head": {
+                "widgetType": "Frame",
+                "root": ".!frame.!canvas.!frame.!frame",
+                "exportVaultButton": {
+                    "widgetType": "Button",
+                    "buttonText": "button0",
+                    "root": ".!frame.!canvas.!frame.!frame.!button"
+                },
+                "deleteVaultButton": {
+                    "widgetType": "Button",
+                    "buttonText": "button1",
+                    "root": ".!frame.!canvas.!frame.!frame.!button2"
+                },
+                "editButton": {
+                    "widgetType": "Button",
+                    "buttonText": "button2",
+                    "root": ".!frame.!canvas.!frame.!frame.!button3"
+                }
+            },
+            "body": {
+                "widgetType": "Frame",
+                "root": ".!frame.!canvas.!frame.!frame2",
+                "vaultName": {
+                    "widgetType": "Label",
+                    "labelText": "vault_1",
+                    "root": ".!frame.!canvas.!frame.!frame2.!label"
+                }
+            }
+        },
+        "frame4": {
+            "widgetType": "Frame",
+            "root": ".!frame.!canvas.!frame.!frame",
+            "exportVaultButton": {
+                "widgetType": "Button",
+                "buttonText": "button0",
+                "root": ".!frame.!canvas.!frame.!frame.!button"
+            },
+            "deleteVaultButton": {
+                "widgetType": "Button",
+                "buttonText": "button1",
+                "root": ".!frame.!canvas.!frame.!frame.!button2"
+            },
+            "editButton": {
+                "widgetType": "Button",
+                "buttonText": "button2",
+                "root": ".!frame.!canvas.!frame.!frame.!button3"
+            }
+        },
+        "frame5": {
+            "widgetType": "Frame",
+            "root": ".!frame.!canvas.!frame.!frame2",
+            "vaultName": {
+                "widgetType": "Label",
+                "labelText": "vault_1",
+                "root": ".!frame.!canvas.!frame.!frame2.!label"
+            }
+        },
+        "frame_vault_2": {
+            "widgetType": "Canavas Frame",
+            "root": ".!frame.!canvas.!frame2",
+            "index": 1,
+            "height": 150,
+            "width": 10,
+            "spacing": 10,
+            "xy": [
+                0,
+                160
+            ],
+            "head": {
+                "widgetType": "Frame",
+                "root": ".!frame.!canvas.!frame2.!frame",
+                "exportVaultButton": {
+                    "widgetType": "Button",
+                    "buttonText": "button3",
+                    "root": ".!frame.!canvas.!frame2.!frame.!button"
+                },
+                "deleteVaultButton": {
+                    "widgetType": "Button",
+                    "buttonText": "button4",
+                    "root": ".!frame.!canvas.!frame2.!frame.!button2"
+                },
+                "editButton": {
+                    "widgetType": "Button",
+                    "buttonText": "button5",
+                    "root": ".!frame.!canvas.!frame2.!frame.!button3"
+                }
+            },
+            "body": {
+                "widgetType": "Frame",
+                "root": ".!frame.!canvas.!frame2.!frame2",
+                "vaultName": {
+                    "widgetType": "Label",
+                    "labelText": "vault_2",
+                    "root": ".!frame.!canvas.!frame2.!frame2.!label"
+                }
+            }
+        },
+        "frame7": {
+            "widgetType": "Frame",
+            "root": ".!frame.!canvas.!frame2.!frame",
+            "exportVaultButton": {
+                "widgetType": "Button",
+                "buttonText": "button3",
+                "root": ".!frame.!canvas.!frame2.!frame.!button"
+            },
+            "deleteVaultButton": {
+                "widgetType": "Button",
+                "buttonText": "button4",
+                "root": ".!frame.!canvas.!frame2.!frame.!button2"
+            },
+            "editButton": {
+                "widgetType": "Button",
+                "buttonText": "button5",
+                "root": ".!frame.!canvas.!frame2.!frame.!button3"
+            }
+        },
+        "frame8": {
+            "widgetType": "Frame",
+            "root": ".!frame.!canvas.!frame2.!frame2",
+            "vaultName": {
+                "widgetType": "Label",
+                "labelText": "vault_2",
+                "root": ".!frame.!canvas.!frame2.!frame2.!label"
+            }
+        },
+        "frame_vault_3": {
+            "widgetType": "Canavas Frame",
+            "root": ".!frame.!canvas.!frame3",
+            "index": 2,
+            "height": 150,
+            "width": 10,
+            "spacing": 10,
+            "xy": [
+                0,
+                320
+            ],
+            "head": {
+                "widgetType": "Frame",
+                "root": ".!frame.!canvas.!frame3.!frame",
+                "exportVaultButton": {
+                    "widgetType": "Button",
+                    "buttonText": "button6",
+                    "root": ".!frame.!canvas.!frame3.!frame.!button"
+                },
+                "deleteVaultButton": {
+                    "widgetType": "Button",
+                    "buttonText": "button7",
+                    "root": ".!frame.!canvas.!frame3.!frame.!button2"
+                },
+                "editButton": {
+                    "widgetType": "Button",
+                    "buttonText": "button8",
+                    "root": ".!frame.!canvas.!frame3.!frame.!button3"
+                }
+            },
+            "body": {
+                "widgetType": "Frame",
+                "root": ".!frame.!canvas.!frame3.!frame2",
+                "vaultName": {
+                    "widgetType": "Label",
+                    "labelText": "vault_3",
+                    "root": ".!frame.!canvas.!frame3.!frame2.!label"
+                }
+            }
+        },
+        "frame10": {
+            "widgetType": "Frame",
+            "root": ".!frame.!canvas.!frame3.!frame",
+            "exportVaultButton": {
+                "widgetType": "Button",
+                "buttonText": "button6",
+                "root": ".!frame.!canvas.!frame3.!frame.!button"
+            },
+            "deleteVaultButton": {
+                "widgetType": "Button",
+                "buttonText": "button7",
+                "root": ".!frame.!canvas.!frame3.!frame.!button2"
+            },
+            "editButton": {
+                "widgetType": "Button",
+                "buttonText": "button8",
+                "root": ".!frame.!canvas.!frame3.!frame.!button3"
+            }
+        },
+        "frame11": {
+            "widgetType": "Frame",
+            "root": ".!frame.!canvas.!frame3.!frame2",
+            "vaultName": {
+                "widgetType": "Label",
+                "labelText": "vault_3",
+                "root": ".!frame.!canvas.!frame3.!frame2.!label"
+            }
         }
     },
     "canavas": {
         "count": 1,
         "homeCanavas": {
             "widgetType": "Canavas",
-            "root": ".!frame.!canvas"
+            "root": ".!frame.!canvas",
+            "frame_count": 3,
+            "frame_vault_1": {
+                "widgetType": "Canavas Frame",
+                "root": ".!frame.!canvas.!frame",
+                "index": 0,
+                "height": 150,
+                "width": 10,
+                "spacing": 10,
+                "xy": [
+                    0,
+                    0
+                ],
+                "head": {
+                    "widgetType": "Frame",
+                    "root": ".!frame.!canvas.!frame.!frame",
+                    "exportVaultButton": {
+                        "widgetType": "Button",
+                        "buttonText": "button0",
+                        "root": ".!frame.!canvas.!frame.!frame.!button"
+                    },
+                    "deleteVaultButton": {
+                        "widgetType": "Button",
+                        "buttonText": "button1",
+                        "root": ".!frame.!canvas.!frame.!frame.!button2"
+                    },
+                    "editButton": {
+                        "widgetType": "Button",
+                        "buttonText": "button2",
+                        "root": ".!frame.!canvas.!frame.!frame.!button3"
+                    }
+                },
+                "body": {
+                    "widgetType": "Frame",
+                    "root": ".!frame.!canvas.!frame.!frame2",
+                    "vaultName": {
+                        "widgetType": "Label",
+                        "labelText": "vault_1",
+                        "root": ".!frame.!canvas.!frame.!frame2.!label"
+                    }
+                }
+            },
+            "frame_vault_2": {
+                "widgetType": "Canavas Frame",
+                "root": ".!frame.!canvas.!frame2",
+                "index": 1,
+                "height": 150,
+                "width": 10,
+                "spacing": 10,
+                "xy": [
+                    0,
+                    160
+                ],
+                "head": {
+                    "widgetType": "Frame",
+                    "root": ".!frame.!canvas.!frame2.!frame",
+                    "exportVaultButton": {
+                        "widgetType": "Button",
+                        "buttonText": "button3",
+                        "root": ".!frame.!canvas.!frame2.!frame.!button"
+                    },
+                    "deleteVaultButton": {
+                        "widgetType": "Button",
+                        "buttonText": "button4",
+                        "root": ".!frame.!canvas.!frame2.!frame.!button2"
+                    },
+                    "editButton": {
+                        "widgetType": "Button",
+                        "buttonText": "button5",
+                        "root": ".!frame.!canvas.!frame2.!frame.!button3"
+                    }
+                },
+                "body": {
+                    "widgetType": "Frame",
+                    "root": ".!frame.!canvas.!frame2.!frame2",
+                    "vaultName": {
+                        "widgetType": "Label",
+                        "labelText": "vault_2",
+                        "root": ".!frame.!canvas.!frame2.!frame2.!label"
+                    }
+                }
+            },
+            "frame_vault_3": {
+                "widgetType": "Canavas Frame",
+                "root": ".!frame.!canvas.!frame3",
+                "index": 2,
+                "height": 150,
+                "width": 10,
+                "spacing": 10,
+                "xy": [
+                    0,
+                    320
+                ],
+                "head": {
+                    "widgetType": "Frame",
+                    "root": ".!frame.!canvas.!frame3.!frame",
+                    "exportVaultButton": {
+                        "widgetType": "Button",
+                        "buttonText": "button6",
+                        "root": ".!frame.!canvas.!frame3.!frame.!button"
+                    },
+                    "deleteVaultButton": {
+                        "widgetType": "Button",
+                        "buttonText": "button7",
+                        "root": ".!frame.!canvas.!frame3.!frame.!button2"
+                    },
+                    "editButton": {
+                        "widgetType": "Button",
+                        "buttonText": "button8",
+                        "root": ".!frame.!canvas.!frame3.!frame.!button3"
+                    }
+                },
+                "body": {
+                    "widgetType": "Frame",
+                    "root": ".!frame.!canvas.!frame3.!frame2",
+                    "vaultName": {
+                        "widgetType": "Label",
+                        "labelText": "vault_3",
+                        "root": ".!frame.!canvas.!frame3.!frame2.!label"
+                    }
+                }
+            }
         }
     },
     "icon": {
@@ -220,15 +787,75 @@
         }
     },
     "label": {
-        "count": 1,
+        "count": 4,
         "label0": {
             "widgetType": "Label",
             "labelText": "AceVault",
             "root": ".!frame.!frame.!frame.!label2"
+        },
+        "label1": {
+            "widgetType": "Label",
+            "labelText": "vault_1",
+            "root": ".!frame.!canvas.!frame.!frame2.!label"
+        },
+        "label2": {
+            "widgetType": "Label",
+            "labelText": "vault_2",
+            "root": ".!frame.!canvas.!frame2.!frame2.!label"
+        },
+        "label3": {
+            "widgetType": "Label",
+            "labelText": "vault_3",
+            "root": ".!frame.!canvas.!frame3.!frame2.!label"
         }
     },
     "button": {
-        "count": 0
+        "count": 9,
+        "button0": {
+            "widgetType": "Button",
+            "buttonText": "button0",
+            "root": ".!frame.!canvas.!frame.!frame.!button"
+        },
+        "button1": {
+            "widgetType": "Button",
+            "buttonText": "button1",
+            "root": ".!frame.!canvas.!frame.!frame.!button2"
+        },
+        "button2": {
+            "widgetType": "Button",
+            "buttonText": "button2",
+            "root": ".!frame.!canvas.!frame.!frame.!button3"
+        },
+        "button3": {
+            "widgetType": "Button",
+            "buttonText": "button3",
+            "root": ".!frame.!canvas.!frame2.!frame.!button"
+        },
+        "button4": {
+            "widgetType": "Button",
+            "buttonText": "button4",
+            "root": ".!frame.!canvas.!frame2.!frame.!button2"
+        },
+        "button5": {
+            "widgetType": "Button",
+            "buttonText": "button5",
+            "root": ".!frame.!canvas.!frame2.!frame.!button3"
+        },
+        "button6": {
+            "widgetType": "Button",
+            "buttonText": "button6",
+            "root": ".!frame.!canvas.!frame3.!frame.!button"
+        },
+        "button7": {
+            "widgetType": "Button",
+            "buttonText": "button7",
+            "root": ".!frame.!canvas.!frame3.!frame.!button2"
+        },
+        "button8": {
+            "widgetType": "Button",
+            "buttonText": "button8",
+            "root": ".!frame.!canvas.!frame3.!frame.!button3"
+        }
     },
     "icon_button": {
         "count": 3,

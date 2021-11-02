@@ -1,3 +1,4 @@
+from numpy.lib.index_tricks import fill_diagonal
 from config_handler import os
 from config_handler import json
 from config_handler import Configuration
@@ -29,9 +30,7 @@ def settingButtonHome():
 # Pre Define Functions >>>>>>>>>>>>>>>>>
 def canavasConfigHome(e):
     widget.view["home"]["right"]["root"].config(scrollregion=widget.view["home"]["right"]["root"].bbox("all"))
-    # print_debug(e)
     widget.view["home"]["right"]["root"].itemconfig(tk.ALL,width=e.width)
-    # widget.view["home"]["right"]["root"].itemconfig(f4_inner_frame_id,x=(e.width-thumb_width)/2)
 
 def window_exit():
     log.info(0,"Have a Nice Day")
@@ -130,15 +129,33 @@ for widgetName,buttonText,iconPath,function in [
     widget.frame["homeMenuList"][widgetName]["root"].pack(side=tk.TOP,fill=tk.X,pady=10,padx=10)
 widget.frame["homeMenuList"]["settingButton"]["root"].pack(side=tk.BOTTOM)
 
-widget.view["home"]["right"]=widget.set_canavas(widget.view["home"],bg="green",canavas_id="homeCanavas")
-widget.view["home"]["right"]["root"].pack(side=tk.RIGHT,fill=tk.BOTH,expand=True)
+widget.view["home"]["right"]=widget.set_canavas(widget.view["home"],bg="green",canavas_id="homeCanavas",highlightthickness=0)
+widget.view["home"]["right"]["root"].pack(side=tk.RIGHT,fill=tk.BOTH,expand=True,padx=5)
 
-for i in [
+for vaultName,vaultCount in [
     ("vault_1",32),
     ("vault_2",13),
     ("vault_3",30),
     ]:
-    widget.canavas["homeCanavas"]["vaultframe1"]=widget.set_canavas_frame(widget.canavas["homeCanavas"])
+    widget.canavas["homeCanavas"]["frame_"+vaultName]=widget.set_canavas_custom_frame1(widget.canavas["homeCanavas"],frame_id="frame_"+vaultName,height=150)
+    
+    widget.frame["frame_"+vaultName]["head"]=widget.set_frame(widget.frame["frame_"+vaultName])
+    widget.frame["frame_"+vaultName]["head"]["root"].pack(side=tk.TOP,fill=tk.X)
+
+    for buttonName,buttonText in [
+        ("exportVaultButton","Export"),
+        ("deleteVaultButton","Delete"),
+        ("editButton","Edit"),
+        ]:
+        widget.frame["frame_"+vaultName]["head"][buttonName]=widget.set_button(widget.frame["frame_"+vaultName]["head"],buttonText)
+        widget.frame["frame_"+vaultName]["head"][buttonName]["root"].pack(side=tk.RIGHT,padx=5)
+
+    widget.frame["frame_"+vaultName]["body"]=widget.set_frame(widget.frame["frame_"+vaultName],bg="pink")
+    widget.frame["frame_"+vaultName]["body"]["root"].pack(side=tk.BOTTOM,fill=tk.BOTH)
+
+    widget.frame["frame_"+vaultName]["body"]["vaultName"]=widget.set_label(widget.frame["frame_"+vaultName]["body"],vaultName)
+    widget.frame["frame_"+vaultName]["body"]["vaultName"]["root"].pack(side=tk.BOTTOM,fill=tk.BOTH)
+
 
 widget.view["home"]["right"]["root"].bind("<Configure>",func=canavasConfigHome)
 widget.view["home"]["right"]["root"].bind_all("<MouseWheel>",lambda e: widget.view["home"]["right"]["root"].yview_scroll(int(-1*e.delta/120),tk.UNITS))
