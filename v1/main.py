@@ -410,10 +410,10 @@ def main():
     master["view"]["vault_view"]["body"]["root"].pack(side=tk.BOTTOM,fill=tk.BOTH,expand=True)
     
     # Raise Frame
-    # master["view"]["home"]["root"].tkraise()
+    master["view"]["home"]["root"].tkraise()
     # master["view"]["home"]["root"].configure(state=tk.DISABLED)
     # master["view"]["view_2"]["root"].tkraise()
-    master["view"]["vault_view"]["root"].tkraise()
+    # master["view"]["vault_view"]["root"].tkraise()
     
     # Color Setting
     color_change(master["theme"],master["config"]["filedata"]["config_theme"])
@@ -438,8 +438,7 @@ if __name__=="__main__":
     import tkinter as tk
     import pandas as pd
     import sys,os
-    from PIL import Image
-        
+
     import json 
     class passbook:
         def __init__(self,column,filename):
