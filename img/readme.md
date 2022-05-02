@@ -1,2 +1,2 @@
-Early Screen 
+# Early Screen 
 ![Home Screen](./homepage.png)
