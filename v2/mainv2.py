@@ -1,5 +1,4 @@
 from numpy.lib.index_tricks import fill_diagonal
-from config_handler import os
 from config_handler import json
 from config_handler import Configuration
 from tk_widget_handler import tk

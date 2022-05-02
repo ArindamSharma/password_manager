@@ -1,10 +1,15 @@
 from color import Color
 from datetime import datetime as dt
+from os.path import isdir
+from os import mkdir
+
 # from env_handler import *
 class Logger:
     def __init__(self,log_filename,env_number=[],bmax=10):
         self.fileName=log_filename
         self.envNumber=env_number
+        if (isdir("log")==False):
+            mkdir("log")
         # self.filePointer=open(self.fileName,"a")
         # self.filePointer=None
         self.bufferMax=bmax
@@ -64,7 +69,7 @@ class Logger:
 
 
 if __name__=="__main__":
-    log=Logger("./log/test_log.log",[0,1,2,3])
+    log=Logger("./__pycache__/test_log.log",[0,1,2,3])
     log.debug(0,"hello")
     for i in range(10):
         log.info(3,"my name is khan")
