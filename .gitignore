@@ -1,5 +1,8 @@
-__pycache__
-v2/__pycache__
-v1/__pycache__
-password_read_write_test/*
+# Ignore VsCode Created Files
+*__pycache__
+
+# Ignore Logs (If Exisit)
 v2/log/*
+
+# My Ignore Files/Folders
+*_ignore*
