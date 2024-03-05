@@ -1,7 +1,9 @@
 from .user import User
+from .storage import Storage
 
 class Model:
     def __init__(self) -> None:
+        
         self.__users:list[User]=[]
         self.securityQuestions:tuple[str]=(
             "Whats your Pet name",

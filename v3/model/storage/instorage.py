@@ -7,7 +7,6 @@ class InStorage:
         self.data:list[User]=pd.DataFrame()
         self._backupName="backup.plk"
         self._backupLocation="../backups/"
-        pass
     
     def load(self,)->None:
         pass
