@@ -1,5 +1,5 @@
-# Password Manager SEPAM (Secure Encrypted Password Manager Application)
-SEPAM is a Password managing tool, a unique way to store password with vaults storing different items.Mechanism of storing password is so secure that it only allows user to access it only when they have a private key to view.
+# Password Manager 
+its a Password managing tool, a unique way to store password with vaults storing different items.Mechanism of storing password is so secure that it only allows user to access it only when they have a private key to view.
 
 ### V1
 here we have 
