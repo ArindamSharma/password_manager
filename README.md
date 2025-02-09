@@ -1,30 +1,19 @@
 # Password Manager 
 its a Password managing tool, a unique way to store password with vaults storing different items.Mechanism of storing password is so secure that it only allows user to access it only when they have a private key to view.
 
-### V1
-here we have 
-* a prototype of the UI interface 
-* which can store/handle the credentials
+# flutter_passwordapp
 
-[ More Details ](./v1/README.md)
-### V2
-here we have 
-* different way for creating the structure/frame for the Data Storage
-* the Password handler deals with all sort of data handling
-* config handler maker sure of proper file saving and reading and storing the configration
-* logger makes the terminal interface more informative
-* color fills the color in terminal based output for easy of debuging
-* tk-widgethandler is the main handler which creates a proper structure with all th variable stored in proper manner.
+A new Flutter project.
 
-[ More Details ](./v2/README.md)
+## Getting Started
 
-[Few Early Screenshots](./img/)
+This project is a starting point for a Flutter application.
 
-### V3
+A few resources to get you started if this is your first Flutter project:
 
+- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
+- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
 
-
-Still under Development. Only Command Line Interface is Build for now. Soon UI will be in action.
-[ More Details ](./v3/README.md)
-
-[Few Early Screenshots](./img/)
+For help getting started with Flutter development, view the
+[online documentation](https://docs.flutter.dev/), which offers tutorials,
+samples, guidance on mobile development, and a full API reference.
