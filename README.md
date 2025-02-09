@@ -1,19 +1,27 @@
-# Password Manager 
-its a Password managing tool, a unique way to store password with vaults storing different items.Mechanism of storing password is so secure that it only allows user to access it only when they have a private key to view.
+# Password Manager
 
-# flutter_passwordapp
+Welcome to the Password Manager, a secure tool designed to manage your passwords efficiently. This application allows you to store passwords in vaults, ensuring that each vault is accessible only with a private key, providing an extra layer of security.
 
-A new Flutter project.
+This is a Flutter project aimed at providing a robust and user-friendly password management solution.
 
-## Getting Started
+## Development Commands
 
-This project is a starting point for a Flutter application.
+Here are some essential commands to help you build, test, and run your Flutter application:
 
-A few resources to get you started if this is your first Flutter project:
+### Build the Application
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+To build the application for release, use the following command:
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+```bash
+flutter build apk --release
+```
+### Run the Application
+To run the application on a specific device, such as Microsoft Edge, use:
+```bash
+flutter run -d edge
+```
+### Test the Application
+To execute tests for your Flutter application, use:
+```bash
+flutter test
+```
