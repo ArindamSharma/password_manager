@@ -1,8 +1,10 @@
 # Ignore VsCode Created Files
-*__pycache__
+*__pycache__*
 
 # Ignore Logs (If Exisit)
 v2/log/*
 
 # My Ignore Files/Folders
 *_ignore*
+
+.ipynb
