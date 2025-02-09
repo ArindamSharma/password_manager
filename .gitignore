@@ -1,9 +1,6 @@
 # Ignore VsCode Created Files
 *__pycache__
 
-# Ignore Logs (If Exisit)
-v2/log/*
-
 # My Ignore Files/Folders
 *_ignore*
 
@@ -48,7 +45,13 @@ app.*.symbols
 app.*.map.json
 
 # Android Studio will place build artifacts here
-/android/app/debug
-/android/app/profile
-/android/app/release
+/android/
 
+# Linux/Mac/Windows/Web system files
+/linux/
+/macos/
+/windows/
+/web/
+/test/
+/ios/
+/android/
