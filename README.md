@@ -25,3 +25,6 @@ To execute tests for your Flutter application, use:
 ```bash
 flutter test
 ```
+### Install flutter Environment without installing Android Studio
+
+https://youtu.be/Sp__3Df22s8?feature=shared
