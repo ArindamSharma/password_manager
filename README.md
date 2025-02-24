@@ -58,9 +58,14 @@ Note: Make sure to have all <new_location_for_sdk> same.
 * Android Studio ADB
 * BlueStack
 * WSA(Windows Subsystem for Android)
+	- https://www.youtube.com/watch?v=c9jdyU-rxtQ
+	- https://learn.microsoft.com/en-us/windows/android/wsa/
+* AVD with avdmanager
+* LDPlayer4 
+	- https://stackoverflow.com/questions/71029525/how-to-create-a-lightweight-android-emulator
 
 
-### Install Emulator without Androud Studio 
+### Install Emulator without Androud Studio (AVD manager)
 
 https://www.youtube.com/watch?v=591Sme4jxDc
 
