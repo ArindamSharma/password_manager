@@ -28,3 +28,26 @@ flutter test
 ### Install flutter Environment without installing Android Studio
 
 https://youtu.be/Sp__3Df22s8?feature=shared
+
+Windows Steps: 
+First download cmdline-tools zip > Extract > Open terminal (same location as of cmdline-tools/bin/)
+
+```
+sdkmanager.bat "build-tools:latest" --sdk_root="<new_location_for_sdk>"
+```
+and download platform-tools from here > https://developer.android.com/tools/releases/platform-tools
+
+```
+sdkmanager.bat "platform:30.0.0" --sdk_root="<new_location_for_sdk>"
+```
+```
+sdkmanager.bat "cmdline-tools:latest" --sdk_root="<new_location_for_sdk>"
+```
+once all 4 items are installed/downloaded > update environment variable for plarform and platform-tools
+
+Update the folder structure by 
+```
+flutter create .
+```
+
+Note: Make sure to have all <new_location_for_sdk> same.
