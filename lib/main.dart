@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_passwordapp/Section/MainScreen.dart';
+import 'package:flutter_passwordapp/screens/main_screen.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized(); // Ensure proper initialization

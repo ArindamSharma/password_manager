@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_passwordapp/Section/home/init.dart';
-import 'package:flutter_passwordapp/Section/setting/init.dart';
-import 'package:flutter_passwordapp/Section/web/init.dart';
+import 'package:flutter_passwordapp/screens/home/init.dart';
+import 'package:flutter_passwordapp/screens/setting/init.dart';
+import 'package:flutter_passwordapp/screens/web/init.dart';
 
 class MainScreen extends StatefulWidget {
   const MainScreen({super.key});

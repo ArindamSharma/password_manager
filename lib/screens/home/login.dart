@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_passwordapp/Service/database.dart';
+import 'package:flutter_passwordapp/services/database_service/init.dart';
 
 class LoginPage extends StatefulWidget {
   final Function(bool) updateLoginState;
