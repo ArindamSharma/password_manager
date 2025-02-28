@@ -32,7 +32,7 @@ class _LoginPageState extends State<LoginPage> {
 
       if (_isSignUp) {
         // Handle sign-up logic here
-        DatabaseService.addUser(username, password, email);
+        DatabaseService.addUser(username, password, email, DateTime.now().toString());
         widget.updateLoginState(true);
       } else {
         // Handle sign-in logic here
@@ -76,11 +76,13 @@ class _LoginPageState extends State<LoginPage> {
                 const Text(
                   'Advance Password Manager',
                   style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+                  textAlign: TextAlign.center,
                 ),
                 const SizedBox(height: 10),
                 const Text(
                   'Manage your password with ease',
                   style: TextStyle(fontSize: 16),
+                  textAlign: TextAlign.center,
                 ),
                 const SizedBox(height: 20),
                 Row(
