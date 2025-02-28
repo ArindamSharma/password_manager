@@ -20,6 +20,17 @@ class HomePage extends StatelessWidget {
       body: Center(
         child: Text('Home Page', style: TextStyle(fontSize: 24)),
       ),
+      floatingActionButton: Align(
+        alignment: Alignment.bottomLeft,
+        child: FloatingActionButton(
+          onPressed: () {
+            // Add your logic to add a vault here
+            print('Add Vault button pressed');
+          },
+          child: const Icon(Icons.add),
+          tooltip: 'Add Vault',
+        ),
+      ),
     );
   }
 }
