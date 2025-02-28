@@ -71,6 +71,24 @@ class DatabaseService {
           User.columnModifiedDATIME: DateTime.now().toString(),
         });
         print('Default user added!');
+        // Insert detault Vault
+        await db.insert(Vault.tableName, {
+          Vault.columnTitle: 'Default Vault',
+          Vault.columnUserID: '1',
+          Vault.columnDescription: 'Default Vault Description',
+          Vault.columnModifiedDATIME: DateTime.now().toString(),
+        });
+        print('Default Vault added!');
+        // Insert default Item
+        await db.insert(Item.tableName, {
+          Item.columnVaultId: '1',
+          Item.columnTitle: 'Default Item',
+          Item.columnUsername: 'defaultusername',
+          Item.columnPassword: 'defaultpassword',
+          Item.columnMetadata: 'defaultmetadata',
+          Item.columnModifiedDATIME: DateTime.now().toString(),
+        });
+        print('Default Item added!');
       },
     );
   }

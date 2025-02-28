@@ -13,19 +13,24 @@ class MainScreen extends StatefulWidget {
 class _MainScreenState extends State<MainScreen> {
   int _selectedIndex = 0;
   final PageController _pageController = PageController();
-  bool isLoggedIn = false;
 
+  // Define the login state here because it is shared across the app sections and wont logout on section change
+  bool isLoggedIn = false;
+  String _currentUser='';
+
+  void updateLoginState(bool value, {String currentUser = ''}) {
+    setState(() {
+      isLoggedIn = value;
+      if(isLoggedIn){
+        this._currentUser = currentUser;
+      }
+    });
+  }
   void _onItemTapped(int index) {
     setState(() {
       _selectedIndex = index;
     });
     _pageController.jumpToPage(index);
-  }
-
-  void _updateLoginState(bool loggedIn) {
-      setState(() {
-        isLoggedIn = loggedIn;
-      });
   }
 
   @override
@@ -40,7 +45,7 @@ class _MainScreenState extends State<MainScreen> {
           });
         },
         children: <Widget>[
-          HomeSection(isLoggedIn: isLoggedIn, updateLoginState: _updateLoginState),
+          HomeSection(isLoggedIn: isLoggedIn, currentUser: _currentUser, updateLoginState: updateLoginState),
           const SettingSection(),
           const WebSection(),
         ],
