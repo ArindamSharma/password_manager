@@ -25,3 +25,62 @@ To execute tests for your Flutter application, use:
 ```bash
 flutter test
 ```
+### Install flutter Environment without installing Android Studio
+
+https://youtu.be/Sp__3Df22s8?feature=shared
+
+Windows Steps: 
+First download cmdline-tools zip > Extract > Open terminal (same location as of cmdline-tools/bin/)
+
+```
+sdkmanager "build-tools;34.0.0" --sdk_root=<new_location_for_sdk>
+```
+and download platform-tools from here > https://developer.android.com/tools/releases/platform-tools
+
+can also reffer this link to find what latest version is running
+
+```
+sdkmanager "platform;android-35" --sdk_root=<new_location_for_sdk>
+```
+```
+sdkmanager "cmdline-tools;latest" --sdk_root=<new_location_for_sdk>
+```
+once all 4 items are installed/downloaded > update environment variable for plarform and platform-tools
+
+Update the folder structure by 
+```
+flutter create .
+```
+
+Note: Make sure to have all <new_location_for_sdk> same.
+
+### Emulators 
+* Android Studio ADB
+* BlueStack
+* WSA(Windows Subsystem for Android)
+	- https://www.youtube.com/watch?v=c9jdyU-rxtQ
+	- https://learn.microsoft.com/en-us/windows/android/wsa/
+* AVD with avdmanager
+* LDPlayer4 
+	- https://stackoverflow.com/questions/71029525/how-to-create-a-lightweight-android-emulator
+
+
+### Install Emulator without Androud Studio (AVD manager)
+
+https://www.youtube.com/watch?v=591Sme4jxDc
+
+
+```
+sdkmanager.bat "system-images;android-35;google_apis;x86_64" --sdk_root=<new_location_for_sdk>                                  
+```
+update environment variable with emulator path newly created after this command 
+
+once Done create a new AVD device
+
+```
+avdmanager create avd --name "MyAVD" --package "system-images;android-35;google_apis;x86_64" 
+```
+
+
+
+Note: [!Important]()  You can also set new System Variable ANDROID_HOME, JAVA_HOME if you dont want to pass --sdk_root=<new_location_for_sdk> everytime.
