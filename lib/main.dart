@@ -6,16 +6,18 @@ import 'package:shared_preferences/shared_preferences.dart';
 void main() async{
   WidgetsFlutterBinding.ensureInitialized(); // Ensure proper initialization
 
-    // Check if the database has been initialized
+  // Check if the app has been run before
   SharedPreferences prefs = await SharedPreferences.getInstance();
-  bool isDatabaseInitialized = prefs.getBool('isDatabaseInitialized') ?? false;
+  bool isFirstRun = prefs.getBool('isFirstRun') ?? true;
 
-  if (!isDatabaseInitialized) {
+  if (isFirstRun) {
+    // Perform initial setup tasks
     await DatabaseService.refreshDatabase(); // Refresh the database
-    await prefs.setBool('isDatabaseInitialized', true); // Set the flag to true
+    await prefs.setBool('isFirstRun', false); // Set the flag to false
+  } else {
+    await DatabaseService.database; // Ensure the database is initialized
   }
-  // await DatabaseService.printAllTables(); // Print all tables in the database
-  
+
   runApp(const MyApp());
 }
 

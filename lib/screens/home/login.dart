@@ -32,7 +32,7 @@ class _LoginPageState extends State<LoginPage> {
 
       if (_isSignUp) {
         // Handle sign-up logic here
-        DatabaseService.addUser(username, password, email, DateTime.now().toString());
+        DatabaseService.addUser(username, password, email);
         widget.updateLoginState(true, currentUser: username);
       } else {
         // Handle sign-in logic here

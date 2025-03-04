@@ -9,7 +9,7 @@ class Item {
   static const String columnModifiedDATIME = 'modifieddatime';
 
   final int? id;
-  final String vaultid;
+  final int vaultid;
   final String title;
   final String username;
   final String password;
