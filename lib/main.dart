@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_passwordapp/screens/main_screen.dart';
-import 'package:flutter_passwordapp/services/database_service/init.dart';
+import 'package:Rudraksha/screens/main_screen.dart';
+import 'package:Rudraksha/services/database_service/init.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 void main() async{
@@ -11,10 +11,12 @@ void main() async{
   bool isFirstRun = prefs.getBool('isFirstRun') ?? true;
 
   if (isFirstRun) {
+    print("First run detected");
     // Perform initial setup tasks
     await DatabaseService.refreshDatabase(); // Refresh the database
     await prefs.setBool('isFirstRun', false); // Set the flag to false
   } else {
+    print("Subsequent run detected");
     await DatabaseService.database; // Ensure the database is initialized
   }
 

@@ -1,10 +1,6 @@
+import 'package:Rudraksha/models/vault.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_passwordapp/screens/home/itemlist.dart';
-import 'package:flutter_passwordapp/screens/home/vaultlist.dart';
-import 'package:flutter_passwordapp/models/vault.dart';
-import 'package:flutter_passwordapp/models/item.dart';
-import 'package:flutter_passwordapp/screens/home/itemDatails.dart';
-import 'package:flutter_passwordapp/services/database_service/init.dart';
+import 'package:Rudraksha/services/database_service/init.dart';
 
 class HomePage extends StatefulWidget {
   final Function(bool) updateLoginState;
@@ -17,27 +13,23 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  Vault? _selectedVault;
-  Item? _selectedItem;
+  List<Vault> _vaults = [];
 
-  void _showVaultList() {
-    setState(() {
-      _selectedVault = null;
-      _selectedItem = null;
-    });
+  @override
+  void initState() {
+    super.initState();
+    _fetchVaults();
   }
 
-  void _showItemsPage(Vault vault) {
-    setState(() {
-      _selectedVault = vault;
-      _selectedItem = null;
-    });
-  }
-
-  void _showItemDetailPage(Item item) {
-    setState(() {
-      _selectedItem = item;
-    });
+  Future<void> _fetchVaults() async {
+    try {
+      final vaults = await DatabaseService.getVaultEntriesByUserId(widget.username);
+      setState(() {
+        _vaults = vaults;
+      });
+    } catch (e) {
+      print('Error fetching vaults: $e');
+    }
   }
 
   void _addVault(BuildContext context) {
@@ -49,18 +41,28 @@ class _HomePageState extends State<HomePage> {
       builder: (BuildContext context) {
         return AlertDialog(
           title: const Text('Add Vault'),
-          content: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              TextField(
-                controller: titleController,
-                decoration: const InputDecoration(labelText: 'Title'),
-              ),
-              TextField(
-                controller: descriptionController,
-                decoration: const InputDecoration(labelText: 'Description'),
-              ),
-            ],
+          content: SingleChildScrollView(
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                TextField(
+                  controller: titleController,
+                  decoration: const InputDecoration(
+                    labelText: 'Title',
+                    border: OutlineInputBorder(),
+                  ),
+                ),
+                const SizedBox(height: 10),
+                TextFormField(
+                  controller: descriptionController,
+                  decoration: const InputDecoration(
+                    labelText: 'Description',
+                    border: OutlineInputBorder(),
+                  ),
+                  maxLines: 5, // Allows the description to be a multi-line paragraph
+                ),
+              ],
+            ),
           ),
           actions: [
             TextButton(
@@ -79,7 +81,7 @@ class _HomePageState extends State<HomePage> {
                   );
                   print('Vault added: ${titleController.text}');
                   Navigator.of(context).pop();
-                  _showVaultList();
+                  _fetchVaults(); // Refresh the vault list
                 } catch (e) {
                   print('Error adding vault: $e');
                 }
@@ -92,74 +94,11 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
-  void _addItem(BuildContext context) {
-    setState(() {
-      _selectedItem = Item(
-        id: null,
-        vaultid: _selectedVault!.id!,
-        title: '',
-        username: '',
-        password: '',
-        metadata: '',
-      );
-    });
-  }
-
-  void _saveItem(BuildContext context, Item item) async {
-    try {
-      if (item.id == null) {
-        // Add new item logic
-        await DatabaseService.addItem(
-          item.vaultid,
-          item.title,
-          item.username,
-          item.password,
-          item.metadata!,
-        );
-        print('Item added: ${item.title}');
-      } else {
-        // Edit existing item logic
-        await DatabaseService.updateItem(
-          item.id!,
-          item.title,
-          item.username,
-          item.password,
-          item.metadata!,
-        );
-        print('Item updated: ${item.title}');
-      }
-      setState(() {
-        _selectedItem = null;
-      });
-      _showItemsPage(_selectedVault!);
-    } catch (e) {
-      print('Error saving item: $e');
-    }
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(_selectedItem != null
-            ? '${_selectedItem!.title} Item'
-            : _selectedVault != null
-                ? '${_selectedVault!.title} Vault'
-                : 'Vaults'),
-        leading: _selectedVault != null
-            ? IconButton(
-                icon: const Icon(Icons.arrow_back),
-                onPressed: () {
-                  if (_selectedItem != null) {
-                    setState(() {
-                      _selectedItem = null;
-                    });
-                  } else {
-                    _showVaultList();
-                  }
-                },
-              )
-            : null,
+        title: const Text('Vaults'),
         actions: [
           IconButton(
             icon: const Icon(Icons.search),
@@ -174,39 +113,30 @@ class _HomePageState extends State<HomePage> {
           ),
         ],
       ),
-      body: _selectedItem != null
-          ? ItemDetailPage(
-              vaultId: _selectedVault!.id!,
-              item: _selectedItem!,
-              onSave: (item) => _saveItem(context, item),
-            )
-          : _selectedVault != null
-              ? ItemsPage(
-                  vaultId: _selectedVault!.id!,
-                  vaultTitle: _selectedVault!.title,
-                  onItemSelected: _showItemDetailPage,
-                )
-              : VaultList(
-                  username: widget.username,
-                  onVaultSelected: _showItemsPage,
-                ),
-      floatingActionButton: _selectedVault == null
-          ? FloatingActionButton.extended(
-              onPressed: () {
-                _addVault(context);
+      body: _vaults.isEmpty
+          ? Center(child: Text('Welcome, ${widget.username}!'))
+          : ListView.builder(
+              itemCount: _vaults.length,
+              itemBuilder: (context, index) {
+                final vault = _vaults[index];
+                return ListTile(
+                  leading: Icon(Icons.lock),
+                  title: Text(vault.title),
+                  onTap: () {
+                    // Handle vault tap
+                    print('Vault tapped: ${vault.title}');
+                  },
+                );
               },
-              icon: const Icon(Icons.add),
-              label: const Text('Vault'),
-              tooltip: 'Add Vault',
-            )
-          : FloatingActionButton.extended(
-              onPressed: () {
-                _addItem(context);
-              },
-              icon: const Icon(Icons.add),
-              label: const Text('Item'),
-              tooltip: 'Add Item',
             ),
+      floatingActionButton: FloatingActionButton.extended(
+        onPressed: () {
+          _addVault(context);
+        },
+        icon: const Icon(Icons.add),
+        label: const Text('Vault'),
+        tooltip: 'Add Vault',
+      ),
     );
   }
 }

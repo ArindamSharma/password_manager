@@ -1,8 +1,8 @@
 import 'package:sqflite/sqflite.dart';
 import 'package:path/path.dart';
-import 'package:flutter_passwordapp/models/user.dart';
-import 'package:flutter_passwordapp/models/vault.dart';
-import 'package:flutter_passwordapp/models/item.dart';
+import 'package:Rudraksha/models/user.dart';
+import 'package:Rudraksha/models/vault.dart';
+import 'package:Rudraksha/models/item.dart';
 
 class DatabaseService {
   static final _databaseName = 'user_management.db';
@@ -253,7 +253,7 @@ class DatabaseService {
     }
   }
 
-  static Future<List<Item>> getItemsByVaultId(String vaultid) async {
+  static Future<List<Item>> getItemsByVaultId(int vaultid) async {
     try {
       final db = await database;
       final List<Map<String, dynamic>> maps = await db.query(

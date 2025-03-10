@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_passwordapp/services/database_service/init.dart';
+import 'package:Rudraksha/services/database_service/init.dart';
 
 class LoginPage extends StatefulWidget {
   final Function(bool, {String currentUser}) updateLoginState;
@@ -42,7 +42,7 @@ class _LoginPageState extends State<LoginPage> {
         } else {
           // Show an error message if the user validation fails
           ScaffoldMessenger.of(context).showSnackBar(
-            SnackBar(content: Text('Invalid username or password')),
+            const SnackBar(content: Text('Invalid username or password')),
           );
         }
       }
@@ -73,9 +73,20 @@ class _LoginPageState extends State<LoginPage> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
+                 Image.asset(
+                      'assets/images/logo.png',
+                      height: 50,
+                    ),
+                const SizedBox(width: 10),
                 const Text(
-                  'Advance Password Manager',
-                  style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+                  'Rudraksha',
+                  style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
+                  textAlign: TextAlign.center,
+                ),
+                const SizedBox(height: 10),
+                const Text(
+                  'Advance Password Management Solution',
+                  style: TextStyle(fontSize: 18),
                   textAlign: TextAlign.center,
                 ),
                 const SizedBox(height: 10),
