@@ -1,38 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:Rudraksha/models/vault.dart';
-import 'package:Rudraksha/services/database_service/init.dart';
 
-class VaultList extends StatefulWidget {
-  final String username;
-  final Function(Vault) onVaultSelected;
+class VaultList extends StatelessWidget {
+  final VoidCallback navigateToItemList;
 
-  const VaultList({super.key, required this.username, required this.onVaultSelected});
+  const VaultList({super.key, required this.navigateToItemList});
 
-  @override
-  _VaultListState createState() => _VaultListState();
-}
-
-class _VaultListState extends State<VaultList> {
-  List<Vault> _vaults = [];
-
-  @override
-  void initState() {
-    super.initState();
-    _fetchVaults();
-  }
-
-  Future<void> _fetchVaults() async {
-    try {
-      final vaults = await DatabaseService.getVaultEntriesByUserId(widget.username);
-      setState(() {
-        _vaults = vaults;
-      });
-    } catch (e) {
-      print('Error fetching vaults: $e');
-    }
-  }
-
-  void _addVault(BuildContext context) {
+  void _showAddVaultDialog(BuildContext context) {
     final TextEditingController titleController = TextEditingController();
     final TextEditingController descriptionController = TextEditingController();
 
@@ -48,18 +21,18 @@ class _VaultListState extends State<VaultList> {
                 TextField(
                   controller: titleController,
                   decoration: const InputDecoration(
-                    labelText: 'Title',
+                    labelText: 'Vault Title',
                     border: OutlineInputBorder(),
                   ),
                 ),
                 const SizedBox(height: 10),
-                TextFormField(
+                TextField(
                   controller: descriptionController,
                   decoration: const InputDecoration(
-                    labelText: 'Description',
+                    labelText: 'Vault Description',
                     border: OutlineInputBorder(),
                   ),
-                  maxLines: 5, // Allows the description to be a multi-line paragraph
+                  maxLines: 3, // Allows multi-line input for the description
                 ),
               ],
             ),
@@ -67,26 +40,17 @@ class _VaultListState extends State<VaultList> {
           actions: [
             TextButton(
               onPressed: () {
-                Navigator.of(context).pop();
+                Navigator.of(context).pop(); // Close the dialog
               },
               child: const Text('Cancel'),
             ),
             TextButton(
-              onPressed: () async {
-                try {
-                  await DatabaseService.addVaultEntry(
-                    titleController.text,
-                    widget.username,
-                    descriptionController.text,
-                  );
-                  print('Vault added: ${titleController.text}');
-                  Navigator.of(context).pop();
-                  _fetchVaults(); // Refresh the vault list
-                } catch (e) {
-                  print('Error adding vault: $e');
-                }
+              onPressed: () {
+                // Implement the logic to add the vault
+                print('Vault Added: ${titleController.text}, ${descriptionController.text}');
+                Navigator.of(context).pop(); // Close the dialog
               },
-              child: const Text('Save'),
+              child: const Text('Add'),
             ),
           ],
         );
@@ -97,43 +61,24 @@ class _VaultListState extends State<VaultList> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Vaults'),
-        actions: [
-          IconButton(
-            icon: const Icon(Icons.search),
-            onPressed: () {
-              // Add your search logic here
-              print('Search button pressed');
-            },
-          ),
-          IconButton(
-            icon: const Icon(Icons.logout),
-            onPressed: () => Navigator.of(context).pop(),
-          ),
-        ],
-      ),
-      body: _vaults.isEmpty
-          ? Center(child: Text('Welcome, ${widget.username}!'))
-          : ListView.builder(
-              itemCount: _vaults.length,
-              itemBuilder: (context, index) {
-                final vault = _vaults[index];
-                return ListTile(
-                  leading: Icon(Icons.lock),
-                  title: Text(vault.title),
-                  onTap: () {
-                    widget.onVaultSelected(vault);
-                  },
-                );
-              },
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            const Text('No Vaults Found'),
+            const SizedBox(height: 20),
+            ElevatedButton(
+              onPressed: navigateToItemList,
+              child: const Text('Go to Item List'),
             ),
-      floatingActionButton: FloatingActionButton.extended(
+          ],
+        ),
+      ),
+      floatingActionButton: FloatingActionButton(
         onPressed: () {
-          _addVault(context);
+          _showAddVaultDialog(context); // Show the dialog when the button is pressed
         },
-        icon: const Icon(Icons.add),
-        label: const Text('Vault'),
+        child: const Icon(Icons.add),
         tooltip: 'Add Vault',
       ),
     );

@@ -6,14 +6,14 @@ class Vault {
   static const String columnDescription = 'description';
   static const String columnModifiedDATIME = 'modifieddatime';
 
-  final int? id;
+  final int id;
   final String title;
   final String userid;
   final String description;
   final String? modifieddatime;
 
   Vault({
-    this.id,
+    required this.id,
     required this.title,
     required this.userid,
     required this.description,

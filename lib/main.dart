@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:Rudraksha/screens/main_screen.dart';
-import 'package:Rudraksha/services/database_service/init.dart';
+import 'package:rudraksha/screens/main_screen.dart';
+import 'package:rudraksha/services/database_service/init.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 void main() async{

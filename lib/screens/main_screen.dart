@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:Rudraksha/screens/home/init.dart';
-import 'package:Rudraksha/screens/setting/init.dart';
-import 'package:Rudraksha/screens/web/init.dart';
+import 'package:rudraksha/screens/home/init.dart';
+import 'package:rudraksha/screens/setting/init.dart';
+import 'package:rudraksha/screens/web/init.dart';
 
 class MainScreen extends StatefulWidget {
   const MainScreen({super.key});

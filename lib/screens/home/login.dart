@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:Rudraksha/services/database_service/init.dart';
+import 'package:rudraksha/services/database_service/init.dart';
 
 class LoginPage extends StatefulWidget {
   final Function(bool, {String currentUser}) updateLoginState;
@@ -36,7 +36,7 @@ class _LoginPageState extends State<LoginPage> {
         widget.updateLoginState(true, currentUser: username);
       } else {
         // Handle sign-in logic here
-        bool isValidUser = await DatabaseService.validateUser(username, password);
+        bool isValidUser = await DatabaseService.authorizeUser(username, password);
         if (isValidUser) {
           widget.updateLoginState(true, currentUser: username);
         } else {

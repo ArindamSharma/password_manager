@@ -1,8 +1,8 @@
 import 'package:sqflite/sqflite.dart';
 import 'package:path/path.dart';
-import 'package:Rudraksha/models/user.dart';
-import 'package:Rudraksha/models/vault.dart';
-import 'package:Rudraksha/models/item.dart';
+import 'package:rudraksha/models/user.dart';
+import 'package:rudraksha/models/vault.dart';
+import 'package:rudraksha/models/item.dart';
 
 class DatabaseService {
   static final _databaseName = 'user_management.db';
@@ -75,36 +75,44 @@ class DatabaseService {
   static Future<void> _insertDefaultData(Database db) async {
     // Insert default user
     await db.insert(User.tableName, {
-      User.columnUsername: 'arindam',
-      User.columnPassword: 'arindam', // Consider hashing the password
-      User.columnEmail: 'newuser@example.com',
+      User.columnUsername: "qwe",
+      User.columnPassword: "qwe", // Consider hashing the password
+      User.columnEmail: "arindam@gmail.com",
       User.columnModifiedDATIME: DateTime.now().toString(),
     });
     print('Default user added!');
+
     // Insert default Vault
     await db.insert(Vault.tableName, {
-      Vault.columnTitle: 'Default Vault',
-      Vault.columnUserID: 'arindam',
-      Vault.columnDescription: 'Default Vault Description',
+      Vault.columnId: 1,
+      Vault.columnTitle: "Vault0",
+      Vault.columnUserID: "arindam",
+      Vault.columnDescription: "this is a sample description for default vault and can be deleted",
       Vault.columnModifiedDATIME: DateTime.now().toString(),
     });
     print('Default Vault added!');
+
     // Insert default Item
     await db.insert(Item.tableName, {
-      Item.columnVaultId: '1',
-      Item.columnTitle: 'Default Item',
-      Item.columnUsername: 'defaultusername',
-      Item.columnPassword: 'defaultpassword',
-      Item.columnMetadata: 'defaultmetadata',
+      Item.columnId: 1,
+      Item.columnVaultId: 1,
+      Item.columnTitle: "Item0",
+      Item.columnUsername: "TestUserName",
+      Item.columnPassword: "TestPassword",
+      Item.columnMetadata: "{'key1':'value1','key2':'value2'}",
       Item.columnModifiedDATIME: DateTime.now().toString(),
     });
     print('Default Item added!');
   }
 
   // User Methods
-  static Future<void> addUser(String username, String password, String email) async {
+  static Future<bool> addUser(String username, String password, String email) async {
     try {
       final db = await database;
+      if (await checkUserExistance(username)) {
+        print('User already exists: $username');
+        return false;
+      }
       await db.insert(User.tableName, {
         User.columnUsername: username,
         User.columnPassword: password, // Consider hashing the password
@@ -112,12 +120,29 @@ class DatabaseService {
         User.columnModifiedDATIME: DateTime.now().toString(),
       });
       print('User added: $username');
+      return true;
     } catch (e) {
       print('Error adding user: $e');
+      return false;
     }
   }
 
-  static Future<bool> validateUser(String username, String password) async {
+  static Future<bool> checkUserExistance(String username) async {
+    try {
+      final db = await database;
+      final List<Map<String, dynamic>> maps = await db.query(
+        User.tableName,
+        where: '${User.columnUsername} = ?',
+        whereArgs: [username],
+      );
+      return maps.isNotEmpty;
+    } catch (e) {
+      print('Error checking user existence: $e');
+      return false;
+    }
+  }
+
+  static Future<bool> authorizeUser(String username, String password) async {
     try {
       final db = await database;
       final List<Map<String, dynamic>> maps = await db.query(
@@ -127,7 +152,7 @@ class DatabaseService {
       );
       return maps.isNotEmpty;
     } catch (e) {
-      print('Error validating user: $e');
+      print('Error authorizing user: $e');
       return false;
     }
   }
@@ -146,13 +171,18 @@ class DatabaseService {
   static Future<void> addVaultEntry(String title, String userId, String description) async {
     try {
       final db = await database;
+      // Query the maximum vaultId
+      final List<Map<String, dynamic>> result = await db.rawQuery('SELECT MAX(${Vault.columnId}) as maxId FROM ${Vault.tableName}');
+      int newVaultId = (result.first['maxId'] ?? 0) + 1;
+
       await db.insert(Vault.tableName, {
+        Vault.columnId: newVaultId,
         Vault.columnTitle: title,
         Vault.columnUserID: userId,
         Vault.columnDescription: description,
         Vault.columnModifiedDATIME: DateTime.now().toString(),
       });
-      print('Vault added: $title');
+      print('Vault added: $title with id: $newVaultId');
     } catch (e) {
       print('Error adding vault entry: $e');
     }
@@ -205,22 +235,27 @@ class DatabaseService {
   }
 
   // Item Methods
-  static Future<void> addItem(int vaultId, String title, String username, String password, String metadata) async {
-    try {
-      final db = await database;
-      await db.insert(Item.tableName, {
-        Item.columnVaultId: vaultId,
-        Item.columnTitle: title,
-        Item.columnUsername: username,
-        Item.columnPassword: password,
-        Item.columnMetadata: metadata,
-        Item.columnModifiedDATIME: DateTime.now().toString(),
-      });
-      print('Item added: $title');
-    } catch (e) {
-      print('Error adding item: $e');
-    }
+static Future<void> addItem(int vaultId, String title, String username, String password, String metadata) async {
+  try {
+    final db = await database;
+    // Query the maximum itemId
+    final List<Map<String, dynamic>> result = await db.rawQuery('SELECT MAX(${Item.columnId}) as maxId FROM ${Item.tableName}');
+    int newItemId = (result.first['maxId'] ?? 0) + 1;
+
+    await db.insert(Item.tableName, {
+      Item.columnId: newItemId,
+      Item.columnVaultId: vaultId,
+      Item.columnTitle: title,
+      Item.columnUsername: username,
+      Item.columnPassword: password,
+      Item.columnMetadata: metadata,
+      Item.columnModifiedDATIME: DateTime.now().toString(),
+    });
+    print('Item added: $title with id: $newItemId');
+  } catch (e) {
+    print('Error adding item: $e');
   }
+}
 
   static Future<void> deleteItem(int id) async {
     try {
