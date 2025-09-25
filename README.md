@@ -40,7 +40,7 @@ and download platform-tools from here > https://developer.android.com/tools/rele
 can also reffer this link to find what latest version is running
 
 ```
-sdkmanager "platform;android-35" --sdk_root=<new_location_for_sdk>
+sdkmanager "platforms;android-35" --sdk_root=<new_location_for_sdk>
 ```
 ```
 sdkmanager "cmdline-tools;latest" --sdk_root=<new_location_for_sdk>
