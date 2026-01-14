@@ -8,8 +8,8 @@ class Item {
   static const String columnMetadata = 'metadata';
   static const String columnModifiedDATIME = 'modifieddatime';
 
-  final int? id;
-  final String vaultid;
+  final int id;
+  final int vaultid;
   final String title;
   final String username;
   final String password;
@@ -17,7 +17,7 @@ class Item {
   final String? modifieddatime;
 
   Item({
-    this.id,
+    required this.id,
     required this.vaultid,
     required this.title,
     required this.username,

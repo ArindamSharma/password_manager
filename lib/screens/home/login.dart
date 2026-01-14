@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_passwordapp/services/database_service/init.dart';
+import 'package:rudraksha/services/database_service/init.dart';
 
 class LoginPage extends StatefulWidget {
-  final Function(bool) updateLoginState;
+  final Function(bool, {String currentUser}) updateLoginState;
 
   const LoginPage({super.key, required this.updateLoginState});
 
@@ -12,7 +12,7 @@ class LoginPage extends StatefulWidget {
 
 class _LoginPageState extends State<LoginPage> {
   bool _isSignUp = false;
-  
+
   final TextEditingController _usernameController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
   final TextEditingController _emailController = TextEditingController();
@@ -32,17 +32,17 @@ class _LoginPageState extends State<LoginPage> {
 
       if (_isSignUp) {
         // Handle sign-up logic here
-        DatabaseService.addUser(username, password, email, DateTime.now().toString());
-        widget.updateLoginState(true);
+        DatabaseService.addUser(username, password, email);
+        widget.updateLoginState(true, currentUser: username);
       } else {
         // Handle sign-in logic here
-        bool isValidUser =await DatabaseService.validateUser(username, password);
+        bool isValidUser = await DatabaseService.authorizeUser(username, password);
         if (isValidUser) {
-          widget.updateLoginState(true);
+          widget.updateLoginState(true, currentUser: username);
         } else {
           // Show an error message if the user validation fails
           ScaffoldMessenger.of(context).showSnackBar(
-            SnackBar(content: Text('Invalid username or password')),
+            const SnackBar(content: Text('Invalid username or password')),
           );
         }
       }
@@ -66,16 +66,27 @@ class _LoginPageState extends State<LoginPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-        child: Padding(
+        child: SingleChildScrollView(
           padding: const EdgeInsets.all(16.0),
           child: Form(
             key: _formKey,
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
+                 Image.asset(
+                      'assets/images/logo.png',
+                      height: 50,
+                    ),
+                const SizedBox(width: 10),
                 const Text(
-                  'Advance Password Manager',
-                  style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+                  'Rudraksha',
+                  style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
+                  textAlign: TextAlign.center,
+                ),
+                const SizedBox(height: 10),
+                const Text(
+                  'Advance Password Management Solution',
+                  style: TextStyle(fontSize: 18),
                   textAlign: TextAlign.center,
                 ),
                 const SizedBox(height: 10),
